@@ -1,6 +1,6 @@
 ## React Native iOS app Set Up
 
-Link:[React Native Crash Course 2020 (52 mins)](https://www.youtube.com/watch?v=Hf4MJH0jDb4)
+Video:[React Native Crash Course 2020 (52 mins)](https://www.youtube.com/watch?v=Hf4MJH0jDb4)
 
 * To install React Native Globally
 
@@ -14,9 +14,16 @@ Link:[React Native Crash Course 2020 (52 mins)](https://www.youtube.com/watch?v=
 
 `Open -a simulator (iPhone simulator)`
 
-Open the app in vitrual smartphone or tablet:
+* Open the app in vitrual smartphone or tablet:
 
 `react-native run-ios`
 
-Link:[Debugging (inc. using Chrome developer tools)](https://www.sitepoint.com/tools-for-debugging-react-native/)
+* Debugging using Chrome Developer tools:
+  1. Have the app already open in Xcode Simulator
+  2. In the mac menu bar, click Hardware > Shake Device
+  3. A menu will open on the iPhone simulator screen. Press "Debug"
+  4. In Chrome, go to `http://localhost:8081/debugger-ui/`
+  5. Press ⌘⌥J
+
+See more:[Debugging React Native apps](https://www.sitepoint.com/tools-for-debugging-react-native/)
 

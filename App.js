@@ -20,7 +20,9 @@ const App =() => {
 
   return(
     <View style={styles.container}>
-      <Text style={styles.text}>{countries[0].name}</Text>
+      <Text style={styles.text}>
+      {countries[0].name}
+      </Text>
     </View>
   );
 };
@@ -29,10 +31,12 @@ const styles = StyleSheet.create({
   container:{
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: "blue"
   },
   text:{
-    fontSize: 50
+    fontSize: 50,
+    color: 'red'
   }
 
 
