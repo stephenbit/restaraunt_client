@@ -1,18 +1,22 @@
-**Ractive Native Set Up**
+## React Native iOS app Set Up
 
-To install React Native Globally
+Link:[React Native Crash Course 2020 (52 mins)](https://www.youtube.com/watch?v=Hf4MJH0jDb4)
+
+* To install React Native Globally
 
 `sudo npm i -g react-native-cli`
 
-To create a new React Native App
+* To create a new React Native App
 
 `React-native init NodemonBanana`
 
-To open the virtual iPhone(requires Xcode)
+* To open the virtual iPhone(requires Xcode)
 
 `Open -a simulator (iPhone simulator)`
 
-Debugging (inc. using Chrome developer tools)
+Open the app in vitrual smartphone or tablet:
 
-`https://www.sitepoint.com/tools-for-debugging-react-native/`
+`react-native run-ios`
+
+Link:[Debugging (inc. using Chrome developer tools)](https://www.sitepoint.com/tools-for-debugging-react-native/)
 
