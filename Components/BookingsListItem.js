@@ -1,17 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import BookingDetails from './BookingDetails';
+import { Overlay } from 'react-native-elements'
 
 const BookingsListItem = ({ booking }) => {
 
-    const handlePress = (pressedItem) => {
-        return <BookingDetails booking={pressedItem}/>
+    const [press, setPress] = useState(false)
+
+    const handlePress = () => {
+        setPress(true)
     }
+
+    const handleAnotherPress = () => {
+        setPress(false)
+    }
+
+    // const handlePress = (pressedItem) => {
+    //     return <BookingDetails booking={pressedItem}/>
+    // }
 
     return (
         <TouchableOpacity style={styles.container}
-        onPress={()=> handlePress({booking})}
+        onPress={()=> handlePress()}
         >
+            <Overlay isVisible={press}>
+                <Text>Hello from Overlay!</Text>
+                <TouchableOpacity onPress={handleAnotherPress}>
+                    <BookingDetails booking={booking}/>
+                </TouchableOpacity>
+            </Overlay>
             <Text style={styles.text}>
                 {booking.startTime}
             </Text>
