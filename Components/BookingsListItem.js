@@ -1,32 +1,42 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import BookingDetails from './BookingDetails';
 
-const BookingsListItem =() => {
+const BookingsListItem = ({ booking }) => {
 
+    const handlePress = (pressedItem) => {
+        return <BookingDetails booking={pressedItem}/>
+    }
 
     return (
-        <View>
-                <Text style={styles.text}>
-                Customer name: {booking.customer.name}
-                </Text>
-                <Text style={styles.text}>
-                Customer phone no: {booking.customer.phoneNumber}
-                </Text>
-                <Text style={styles.text}>
-                Date: {booking.date}
-                </Text>
-                <Text style={styles.text}>
-                Time: {booking.startTime}
-                </Text>
-                <Text style={styles.text}>
-                Party size: {booking.numberOfGuests}
-                </Text>
-                <Text style={styles.text}>
-                Table Number: {booking.eatingPlatformId}
-                </Text>
-           </View>
+        <TouchableOpacity style={styles.container}
+        onPress={()=> handlePress({booking})}
+        >
+            <Text style={styles.text}>
+                {booking.startTime}
+            </Text>
+            <Text style={styles.text}>
+                {booking.customer.name}
+            </Text>
+            <Text style={styles.text}>
+                Table {booking.eatingPlatformId}
+            </Text>
+        </TouchableOpacity>
     )
 }
+
+const styles = StyleSheet.create({
+    text: {
+        fontSize: 20,
+        color: 'black',
+        paddingRight: 10,
+        paddingBottom: 10
+    },
+    container: {
+        flexDirection: 'row'
+
+    }
+})
 
 
 

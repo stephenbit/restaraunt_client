@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import BookingDetails from './Components/BookingDetails';
 import Header from './Components/Header';
+import BookingsListItem from './Components/BookingsListItem';
 
 
 const App = () => {
@@ -25,18 +26,28 @@ const App = () => {
     <View style={styles.view}>
 
       <Header title="Header" />
+      <View style={styles.list}>
       <FlatList
       data= {bookings}
       renderItem={({item}) =>
-      <BookingDetails booking={item}/>}
+      <BookingsListItem booking={item}/>}
       />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   view: {
-    flex: 1,
+    flex: 1
+  },
+  list:{
+    borderWidth: 2,
+    height: 500,
+    borderColor: 'red',
+    padding: 10,
+    alignContent: 'center',
+    marginHorizontal: 15
   }
 })
 
