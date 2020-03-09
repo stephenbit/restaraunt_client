@@ -1,27 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import BookingDetails from './BookingDetails';
+import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
-const BookingsListItem = ({ booking }) => {
+const BookingsListItem = ({ bookings }) => {
 
     const handlePress = (pressedItem) => {
-        return <BookingDetails booking={pressedItem}/>
+        console.log(pressedItem)
     }
 
+    const [tableHead, setTableHead] = useState(['time', 'name', 'table'])
+    const [tableData, setTableData] = useState([])
+
+    const tableDataNodes = bookings.map((booking) => {
+        return (<Row onPress={() => handlePress({ booking })} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />)
+    })
+
     return (
-        <TouchableOpacity style={styles.container}
-        onPress={()=> handlePress({booking})}
-        >
-            <Text style={styles.text}>
-                {booking.startTime}
-            </Text>
-            <Text style={styles.text}>
-                {booking.customer.name}
-            </Text>
-            <Text style={styles.text}>
-                Table {booking.eatingPlatformId}
-            </Text>
-        </TouchableOpacity>
+        <View>
+            <Table borderStyle={{ borderWidth: 2, borderColor: '#c8e1ff' }}>
+            <TouchableOpacity>
+                <Row data={tableHead} />
+                </TouchableOpacity>
+                {tableDataNodes}
+            </Table>
+
+            {/* <TouchableOpacity style={styles.container}
+                onPress={() => handlePress({ booking })}
+            >
+                <Text style={styles.text}>
+                    {booking.startTime}
+                </Text>
+                <Text style={styles.text}>
+                    {booking.customer.name}
+                </Text>
+                <Text style={styles.text}>
+                    Table {booking.eatingPlatformId}
+                </Text>
+            </TouchableOpacity> */}
+        </View>
     )
 }
 

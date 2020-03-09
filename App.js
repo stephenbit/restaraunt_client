@@ -10,7 +10,7 @@ const App = () => {
   useEffect(() => {
     getBookingsData()
   },
-  []
+    []
   )
 
   const [bookings, setBookings] = useState([])
@@ -19,7 +19,7 @@ const App = () => {
     fetch('https://restaurantspringbackend.herokuapp.com/bookings')
       .then(res => res.json())
       .then(bookingData => setBookings(bookingData._embedded.bookings))
-      // .then(() => console.log(bookings[0].date))
+    // .then(() => console.log(bookings[0].date))
   }
 
   return (
@@ -27,11 +27,7 @@ const App = () => {
 
       <Header title="Header" />
       <View style={styles.list}>
-      <FlatList
-      data= {bookings}
-      renderItem={({item}) =>
-      <BookingsListItem booking={item}/>}
-      />
+        <BookingsListItem bookings={bookings} />
       </View>
     </View>
   );
@@ -41,7 +37,7 @@ const styles = StyleSheet.create({
   view: {
     flex: 1
   },
-  list:{
+  list: {
     borderWidth: 2,
     height: 500,
     borderColor: 'red',
