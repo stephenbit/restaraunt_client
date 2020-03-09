@@ -1,32 +1,41 @@
-import React, {useState} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, FlatList } from 'react-native';
 import BookingDetails from './Components/BookingDetails';
 import Header from './Components/Header';
 
 
 const App = () => {
 
-  const [bookings, setBookings] = useState ([
-    {id: 0,
-    tableNumber: 89,
-    customerName: "Bobby Jacob",
-    customerPhoneNumber: "01189998819901197253"
+  useEffect(() => {
+    getBookingsData()
+  },
+  []
+  )
+
+  const [bookings, setBookings] = useState([])
+
+  const getBookingsData = () => {
+    fetch('https://restaurantspringbackend.herokuapp.com/bookings')
+      .then(res => res.json())
+      .then(bookingData => setBookings(bookingData._embedded.bookings))
+      // .then(() => console.log(bookings[0].date))
   }
-  ])
 
   return (
     <View style={styles.view}>
 
-    <Header title="Header"/>
-      <BookingDetails booking={bookings[0]}/>
-
-      
+      <Header title="Header" />
+      <FlatList
+      data= {bookings}
+      renderItem={({item}) =>
+      <BookingDetails booking={item}/>}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  view:{
+  view: {
     flex: 1,
   }
 })

@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const BookingDetails =({booking})=> {
+const BookingsListItem =() => {
 
-    if(booking){
-        return (
-            <View>
+
+    return (
+        <View>
                 <Text style={styles.text}>
                 Customer name: {booking.customer.name}
                 </Text>
@@ -25,28 +25,9 @@ const BookingDetails =({booking})=> {
                 Table Number: {booking.eatingPlatformId}
                 </Text>
            </View>
-       ); 
-    }
-    else{
-        return null;
-    }
-
-
+    )
 }
 
-const styles = StyleSheet.create({
-    view:{
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    title:{
-        fontSize:40,
-        textAlignVertical: 'top'
-    },
-    text:{
-      fontSize: 20,
-      color: 'black'
-    }
-  })
 
-export default BookingDetails;
+
+export default BookingsListItem;
