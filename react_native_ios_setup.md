@@ -8,11 +8,11 @@ Video:[React Native Crash Course 2020 (52 mins)](https://www.youtube.com/watch?v
 
 * To create a new React Native App
 
-`React-native init NodemonBanana`
+`react-native init NodemonBanana`
 
 * To open the virtual iPhone(requires Xcode)
 
-`Open -a simulator (iPhone simulator)`
+`open -a simulator (iPhone simulator)`
 
 * Open the app in vitrual smartphone or tablet:
 

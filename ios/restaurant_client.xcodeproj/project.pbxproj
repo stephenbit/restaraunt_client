@@ -12,30 +12,14 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1648D3C929DFB5184DB35B81 /* libPods-restaurant_client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB6BEDAF1FD0E0C143F3F68 /* libPods-restaurant_client.a */; };
+		17084400659594702151AF3A /* libPods-restaurant_client-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D805F8A875FAE8BB99913E85 /* libPods-restaurant_client-tvOS.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* restaurant_clientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* restaurant_clientTests.m */; };
-		5BC2497C65E90D358ECD8A2B /* libPods-restaurant_client-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EB24796E40D05EA159767D /* libPods-restaurant_client-tvOS.a */; };
-		8F411476BBDAA80232E6A814 /* libPods-restaurant_clientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 110B65CDEEAE412776BC1C79 /* libPods-restaurant_clientTests.a */; };
-		C3E68B48334D87EC3D37F3F3 /* libPods-restaurant_client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4783179E5ABFA7667B7656F /* libPods-restaurant_client.a */; };
-		E7ACE51FA3736E4E46BF87F2 /* libPods-restaurant_client-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E79EB6A626E28C93AE4B0573 /* libPods-restaurant_client-tvOSTests.a */; };
-		C1881BDBB2914B81A3F60694 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D00A03C8272B446793212B40 /* AntDesign.ttf */; };
-		04B72B32AB4042FB92B04DE0 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F7D261B1465435D9CB69DFE /* Entypo.ttf */; };
-		2FE683F50AA246A5B4EDCA6E /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE5E91E975104C139F83FDDF /* EvilIcons.ttf */; };
-		C98C84458DD0444C9B6C4A3C /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 374888E72FF343B9B4D24B50 /* Feather.ttf */; };
-		B578A3641DCF41EF89D92A8E /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A74C5275BA1401FB6D7F438 /* FontAwesome.ttf */; };
-		B7C3AFA02876479387C80693 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 329330A5434245D4914D88B2 /* FontAwesome5_Brands.ttf */; };
-		2479E8DAF1884182B8303FAE /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 527098890CA94E0E890330D5 /* FontAwesome5_Regular.ttf */; };
-		D6539DA838B9474EA7091D65 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D13FF371C1048CFA83BE826 /* FontAwesome5_Solid.ttf */; };
-		8D5325DBF595450880069697 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 952BE76DEC4749EFAAF13FD8 /* Fontisto.ttf */; };
-		5586C47177FE49499913822C /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80B8A9AABD414CEE90BDCC05 /* Foundation.ttf */; };
-		2698B2E3239648D987B3F86D /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 192CDE0FAE694A668184D8B3 /* Ionicons.ttf */; };
-		085AD32AF57444A3B39C1F08 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 488E6B940C594F659AF2F596 /* MaterialCommunityIcons.ttf */; };
-		538EDE722A074716A2DA844B /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FCC5BD279E9462FBF944970 /* MaterialIcons.ttf */; };
-		8D9C6490A5404FECA5667DD6 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BBBFC4C14D346828EBC7D3F /* Octicons.ttf */; };
-		A78535E8D6174C24A9E409BC /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5936E59EA97B4C27B84127EC /* SimpleLineIcons.ttf */; };
-		8B317A06B6A241B684588AE4 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF4B82B66DAC4723ACE53F8E /* Zocial.ttf */; };
+		9532E960E76B528543D7DF87 /* libPods-restaurant_clientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F48EEF308E12B943077B871A /* libPods-restaurant_clientTests.a */; };
+		F151F61DE8008AA7E0E34539 /* libPods-restaurant_client-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DF66A2D6A64F914F988FD3 /* libPods-restaurant_client-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +44,6 @@
 		00E356EE1AD99517003FC87E /* restaurant_clientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = restaurant_clientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* restaurant_clientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = restaurant_clientTests.m; sourceTree = "<group>"; };
-		110B65CDEEAE412776BC1C79 /* libPods-restaurant_clientTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-restaurant_clientTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* restaurant_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = restaurant_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = restaurant_client/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = restaurant_client/AppDelegate.m; sourceTree = "<group>"; };
@@ -68,37 +51,22 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = restaurant_client/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = restaurant_client/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = restaurant_client/main.m; sourceTree = "<group>"; };
-		1DC9EC8C27D017EA99F69DEF /* Pods-restaurant_client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_client.release.xcconfig"; path = "Target Support Files/Pods-restaurant_client/Pods-restaurant_client.release.xcconfig"; sourceTree = "<group>"; };
-		25F92D53CF7EDB88C7A741FE /* Pods-restaurant_client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_client.debug.xcconfig"; path = "Target Support Files/Pods-restaurant_client/Pods-restaurant_client.debug.xcconfig"; sourceTree = "<group>"; };
+		26DF66A2D6A64F914F988FD3 /* libPods-restaurant_client-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-restaurant_client-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CBFE190CB175008E8FCA71F /* Pods-restaurant_clientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_clientTests.debug.xcconfig"; path = "Target Support Files/Pods-restaurant_clientTests/Pods-restaurant_clientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* restaurant_client-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "restaurant_client-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* restaurant_client-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "restaurant_client-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F2B8D8946BB36822E1E67FB /* Pods-restaurant_client-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_client-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-restaurant_client-tvOS/Pods-restaurant_client-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		4A7AE816AA04AC0B7B28B1DA /* Pods-restaurant_clientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_clientTests.release.xcconfig"; path = "Target Support Files/Pods-restaurant_clientTests/Pods-restaurant_clientTests.release.xcconfig"; sourceTree = "<group>"; };
-		85EB24796E40D05EA159767D /* libPods-restaurant_client-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-restaurant_client-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		89C9622E4FC8B42CBC96C563 /* Pods-restaurant_client-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_client-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-restaurant_client-tvOSTests/Pods-restaurant_client-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		955148D72C11E99483D58017 /* Pods-restaurant_clientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_clientTests.debug.xcconfig"; path = "Target Support Files/Pods-restaurant_clientTests/Pods-restaurant_clientTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B4783179E5ABFA7667B7656F /* libPods-restaurant_client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-restaurant_client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E79EB6A626E28C93AE4B0573 /* libPods-restaurant_client-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-restaurant_client-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9B857B7C4AD749B3E9A847D /* Pods-restaurant_client-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_client-tvOS.release.xcconfig"; path = "Target Support Files/Pods-restaurant_client-tvOS/Pods-restaurant_client-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		EAF30CC69E1430F1DD092A7F /* Pods-restaurant_client-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_client-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-restaurant_client-tvOSTests/Pods-restaurant_client-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2FBFCC405B2C4F29C4503334 /* Pods-restaurant_client-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_client-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-restaurant_client-tvOS/Pods-restaurant_client-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		469EB051BBD14AD83FC500C7 /* Pods-restaurant_client-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_client-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-restaurant_client-tvOSTests/Pods-restaurant_client-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		5EB6BEDAF1FD0E0C143F3F68 /* libPods-restaurant_client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-restaurant_client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		840705539377BC8D509623D1 /* Pods-restaurant_clientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_clientTests.release.xcconfig"; path = "Target Support Files/Pods-restaurant_clientTests/Pods-restaurant_clientTests.release.xcconfig"; sourceTree = "<group>"; };
+		9920C3ED18A91DFCAC762E8E /* Pods-restaurant_client-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_client-tvOS.release.xcconfig"; path = "Target Support Files/Pods-restaurant_client-tvOS/Pods-restaurant_client-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		B77CF5F017F230CF294E7E66 /* Pods-restaurant_client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_client.release.xcconfig"; path = "Target Support Files/Pods-restaurant_client/Pods-restaurant_client.release.xcconfig"; sourceTree = "<group>"; };
+		B7ADC0D82F6ED07CF151ADDE /* Pods-restaurant_client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_client.debug.xcconfig"; path = "Target Support Files/Pods-restaurant_client/Pods-restaurant_client.debug.xcconfig"; sourceTree = "<group>"; };
+		CBA29D6A648B7D66ED379037 /* Pods-restaurant_client-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurant_client-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-restaurant_client-tvOSTests/Pods-restaurant_client-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D805F8A875FAE8BB99913E85 /* libPods-restaurant_client-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-restaurant_client-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		D00A03C8272B446793212B40 /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2F7D261B1465435D9CB69DFE /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		CE5E91E975104C139F83FDDF /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		374888E72FF343B9B4D24B50 /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5A74C5275BA1401FB6D7F438 /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		329330A5434245D4914D88B2 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		527098890CA94E0E890330D5 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		1D13FF371C1048CFA83BE826 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		952BE76DEC4749EFAAF13FD8 /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		80B8A9AABD414CEE90BDCC05 /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		192CDE0FAE694A668184D8B3 /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		488E6B940C594F659AF2F596 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		9FCC5BD279E9462FBF944970 /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2BBBFC4C14D346828EBC7D3F /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5936E59EA97B4C27B84127EC /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AF4B82B66DAC4723ACE53F8E /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F48EEF308E12B943077B871A /* libPods-restaurant_clientTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-restaurant_clientTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F411476BBDAA80232E6A814 /* libPods-restaurant_clientTests.a in Frameworks */,
+				9532E960E76B528543D7DF87 /* libPods-restaurant_clientTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3E68B48334D87EC3D37F3F3 /* libPods-restaurant_client.a in Frameworks */,
+				1648D3C929DFB5184DB35B81 /* libPods-restaurant_client.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BC2497C65E90D358ECD8A2B /* libPods-restaurant_client-tvOS.a in Frameworks */,
+				17084400659594702151AF3A /* libPods-restaurant_client-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7ACE51FA3736E4E46BF87F2 /* libPods-restaurant_client-tvOSTests.a in Frameworks */,
+				F151F61DE8008AA7E0E34539 /* libPods-restaurant_client-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,10 +141,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				B4783179E5ABFA7667B7656F /* libPods-restaurant_client.a */,
-				85EB24796E40D05EA159767D /* libPods-restaurant_client-tvOS.a */,
-				E79EB6A626E28C93AE4B0573 /* libPods-restaurant_client-tvOSTests.a */,
-				110B65CDEEAE412776BC1C79 /* libPods-restaurant_clientTests.a */,
+				5EB6BEDAF1FD0E0C143F3F68 /* libPods-restaurant_client.a */,
+				D805F8A875FAE8BB99913E85 /* libPods-restaurant_client-tvOS.a */,
+				26DF66A2D6A64F914F988FD3 /* libPods-restaurant_client-tvOSTests.a */,
+				F48EEF308E12B943077B871A /* libPods-restaurant_clientTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -196,8 +164,7 @@
 				00E356EF1AD99517003FC87E /* restaurant_clientTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				FF166607A1AD917F548F3C62 /* Pods */,
-				EC1D2B77B1A94C5EA197E45D /* Resources */,
+				BC38118EFAEF4367CDEA12A2 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -215,45 +182,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FF166607A1AD917F548F3C62 /* Pods */ = {
+		BC38118EFAEF4367CDEA12A2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				25F92D53CF7EDB88C7A741FE /* Pods-restaurant_client.debug.xcconfig */,
-				1DC9EC8C27D017EA99F69DEF /* Pods-restaurant_client.release.xcconfig */,
-				3F2B8D8946BB36822E1E67FB /* Pods-restaurant_client-tvOS.debug.xcconfig */,
-				E9B857B7C4AD749B3E9A847D /* Pods-restaurant_client-tvOS.release.xcconfig */,
-				EAF30CC69E1430F1DD092A7F /* Pods-restaurant_client-tvOSTests.debug.xcconfig */,
-				89C9622E4FC8B42CBC96C563 /* Pods-restaurant_client-tvOSTests.release.xcconfig */,
-				955148D72C11E99483D58017 /* Pods-restaurant_clientTests.debug.xcconfig */,
-				4A7AE816AA04AC0B7B28B1DA /* Pods-restaurant_clientTests.release.xcconfig */,
+				B7ADC0D82F6ED07CF151ADDE /* Pods-restaurant_client.debug.xcconfig */,
+				B77CF5F017F230CF294E7E66 /* Pods-restaurant_client.release.xcconfig */,
+				2FBFCC405B2C4F29C4503334 /* Pods-restaurant_client-tvOS.debug.xcconfig */,
+				9920C3ED18A91DFCAC762E8E /* Pods-restaurant_client-tvOS.release.xcconfig */,
+				CBA29D6A648B7D66ED379037 /* Pods-restaurant_client-tvOSTests.debug.xcconfig */,
+				469EB051BBD14AD83FC500C7 /* Pods-restaurant_client-tvOSTests.release.xcconfig */,
+				2CBFE190CB175008E8FCA71F /* Pods-restaurant_clientTests.debug.xcconfig */,
+				840705539377BC8D509623D1 /* Pods-restaurant_clientTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		EC1D2B77B1A94C5EA197E45D /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				D00A03C8272B446793212B40 /* AntDesign.ttf */,
-				2F7D261B1465435D9CB69DFE /* Entypo.ttf */,
-				CE5E91E975104C139F83FDDF /* EvilIcons.ttf */,
-				374888E72FF343B9B4D24B50 /* Feather.ttf */,
-				5A74C5275BA1401FB6D7F438 /* FontAwesome.ttf */,
-				329330A5434245D4914D88B2 /* FontAwesome5_Brands.ttf */,
-				527098890CA94E0E890330D5 /* FontAwesome5_Regular.ttf */,
-				1D13FF371C1048CFA83BE826 /* FontAwesome5_Solid.ttf */,
-				952BE76DEC4749EFAAF13FD8 /* Fontisto.ttf */,
-				80B8A9AABD414CEE90BDCC05 /* Foundation.ttf */,
-				192CDE0FAE694A668184D8B3 /* Ionicons.ttf */,
-				488E6B940C594F659AF2F596 /* MaterialCommunityIcons.ttf */,
-				9FCC5BD279E9462FBF944970 /* MaterialIcons.ttf */,
-				2BBBFC4C14D346828EBC7D3F /* Octicons.ttf */,
-				5936E59EA97B4C27B84127EC /* SimpleLineIcons.ttf */,
-				AF4B82B66DAC4723ACE53F8E /* Zocial.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -262,7 +204,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "restaurant_clientTests" */;
 			buildPhases = (
-				09E5D019379430F39F41FFCC /* [CP] Check Pods Manifest.lock */,
+				22FE329509FC96FFE1ED8365 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -281,7 +223,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "restaurant_client" */;
 			buildPhases = (
-				25755D1140B2C0398C4D46CC /* [CP] Check Pods Manifest.lock */,
+				7369EB78C32EF56E037B690E /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -301,7 +243,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "restaurant_client-tvOS" */;
 			buildPhases = (
-				543FAC7C2E54C9632A4C294F /* [CP] Check Pods Manifest.lock */,
+				582704AF4115E5F0E4D03516 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -321,7 +263,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "restaurant_client-tvOSTests" */;
 			buildPhases = (
-				DB78AA00A5491E7E2570B7E6 /* [CP] Check Pods Manifest.lock */,
+				2CDBB7BC007E5AD775EE2BDC /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -342,12 +284,16 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 940;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 9S3HMQ6VH4;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 9S3HMQ6VH4;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -365,6 +311,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -395,22 +342,6 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				C1881BDBB2914B81A3F60694 /* AntDesign.ttf in Resources */,
-				04B72B32AB4042FB92B04DE0 /* Entypo.ttf in Resources */,
-				2FE683F50AA246A5B4EDCA6E /* EvilIcons.ttf in Resources */,
-				C98C84458DD0444C9B6C4A3C /* Feather.ttf in Resources */,
-				B578A3641DCF41EF89D92A8E /* FontAwesome.ttf in Resources */,
-				B7C3AFA02876479387C80693 /* FontAwesome5_Brands.ttf in Resources */,
-				2479E8DAF1884182B8303FAE /* FontAwesome5_Regular.ttf in Resources */,
-				D6539DA838B9474EA7091D65 /* FontAwesome5_Solid.ttf in Resources */,
-				8D5325DBF595450880069697 /* Fontisto.ttf in Resources */,
-				5586C47177FE49499913822C /* Foundation.ttf in Resources */,
-				2698B2E3239648D987B3F86D /* Ionicons.ttf in Resources */,
-				085AD32AF57444A3B39C1F08 /* MaterialCommunityIcons.ttf in Resources */,
-				538EDE722A074716A2DA844B /* MaterialIcons.ttf in Resources */,
-				8D9C6490A5404FECA5667DD6 /* Octicons.ttf in Resources */,
-				A78535E8D6174C24A9E409BC /* SimpleLineIcons.ttf in Resources */,
-				8B317A06B6A241B684588AE4 /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +377,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		09E5D019379430F39F41FFCC /* [CP] Check Pods Manifest.lock */ = {
+		22FE329509FC96FFE1ED8365 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -468,7 +399,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		25755D1140B2C0398C4D46CC /* [CP] Check Pods Manifest.lock */ = {
+		2CDBB7BC007E5AD775EE2BDC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -483,7 +414,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-restaurant_client-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-restaurant_client-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -504,7 +435,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		543FAC7C2E54C9632A4C294F /* [CP] Check Pods Manifest.lock */ = {
+		582704AF4115E5F0E4D03516 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -526,7 +457,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DB78AA00A5491E7E2570B7E6 /* [CP] Check Pods Manifest.lock */ = {
+		7369EB78C32EF56E037B690E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -541,7 +472,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-restaurant_client-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-restaurant_client-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -653,9 +584,10 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 955148D72C11E99483D58017 /* Pods-restaurant_clientTests.debug.xcconfig */;
+			baseConfigurationReference = 2CBFE190CB175008E8FCA71F /* Pods-restaurant_clientTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 9S3HMQ6VH4;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -676,10 +608,11 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A7AE816AA04AC0B7B28B1DA /* Pods-restaurant_clientTests.release.xcconfig */;
+			baseConfigurationReference = 840705539377BC8D509623D1 /* Pods-restaurant_clientTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 9S3HMQ6VH4;
 				INFOPLIST_FILE = restaurant_clientTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -696,11 +629,12 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25F92D53CF7EDB88C7A741FE /* Pods-restaurant_client.debug.xcconfig */;
+			baseConfigurationReference = B7ADC0D82F6ED07CF151ADDE /* Pods-restaurant_client.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 9S3HMQ6VH4;
 				INFOPLIST_FILE = restaurant_client/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -716,10 +650,11 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DC9EC8C27D017EA99F69DEF /* Pods-restaurant_client.release.xcconfig */;
+			baseConfigurationReference = B77CF5F017F230CF294E7E66 /* Pods-restaurant_client.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9S3HMQ6VH4;
 				INFOPLIST_FILE = restaurant_client/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -735,7 +670,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F2B8D8946BB36822E1E67FB /* Pods-restaurant_client-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 2FBFCC405B2C4F29C4503334 /* Pods-restaurant_client-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -763,7 +698,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E9B857B7C4AD749B3E9A847D /* Pods-restaurant_client-tvOS.release.xcconfig */;
+			baseConfigurationReference = 9920C3ED18A91DFCAC762E8E /* Pods-restaurant_client-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -791,7 +726,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAF30CC69E1430F1DD092A7F /* Pods-restaurant_client-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = CBA29D6A648B7D66ED379037 /* Pods-restaurant_client-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -818,7 +753,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C9622E4FC8B42CBC96C563 /* Pods-restaurant_client-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 469EB051BBD14AD83FC500C7 /* Pods-restaurant_client-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

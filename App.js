@@ -1,27 +1,27 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 const App =() => {
 
-  const [countries, setCountries] = useState([])
-  const getCountries= () => {
-    fetch('https://restcountries.eu/rest/v2/all')
-    .then(res=>res.json())
-    .then(countries=>setCountries(countries))
-    .then(banana=>console.log(countries)
-    )
-  }
+  // const [countries, setCountries] = useState([])
+  // const getCountries= () => {
+  //   fetch('https://restcountries.eu/rest/v2/all')
+  //   .then(res=>res.json())
+  //   .then(countries=>setCountries(countries))
+  //   .then(banana=>console.log(countries)
+  //   )
+  // }
 
-  useEffect(()=>{
-    getCountries()
-  },
-  []
-  );
+  // useEffect(()=>{
+  //   getCountries()
+  // },
+  // []
+  // );
 
   return(
     <View style={styles.container}>
       <Text style={styles.text}>
-      {countries[0].name}
+      IT WORKS!!!
       </Text>
     </View>
   );
