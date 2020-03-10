@@ -7,7 +7,6 @@ const BookingDetails =({booking, backHome})=> {
         console.log(name);
         console.log(time);
         console.log(date);
-        console.log(phoneNumber);
         console.log(table);
     }
 
@@ -15,7 +14,7 @@ const BookingDetails =({booking, backHome})=> {
     const [name, onChangeName] = useState(booking.customer.name);
     const [time, onChangeTime] = useState(booking.startTime);
     const [date, onChangeDate] = useState(booking.date);
-    const [phoneNumber, onChangePhoneNumber] = useState(booking.customer.phoneNumber);
+    const [numberOfGuests, onChangeNumberOfGuests] = useState(booking.numberOfGuests);
     const [table, onChangeTable] = useState(booking.eatingPlatformId);
 
 
@@ -41,12 +40,6 @@ const BookingDetails =({booking, backHome})=> {
                     onChangeText={text => onChangeDate(text)}
                     value={date}
                 />
-                <Text>Phone Number:</Text>
-                <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                    onChangeText={text => onChangePhoneNumber(text)}
-                    value={phoneNumber}
-                />
                 <Text>Table:</Text>
                 <TextInput
                     style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
@@ -62,9 +55,6 @@ const BookingDetails =({booking, backHome})=> {
 
                 <Text style={styles.text}>
                 Customer name: {booking.customer.name}
-                </Text>
-                <Text style={styles.text}>
-                Customer phone no: {booking.customer.phoneNumber}
                 </Text>
                 <Text style={styles.text}>
                 Date: {booking.date}
