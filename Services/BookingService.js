@@ -7,7 +7,11 @@ export default {
         },
 
     createBooking(bookingDetails){
-        return null;
+        return fetch(baseUrl, {
+            method:"POST",
+            body: JSON.stringify(bookingDetails),
+            headers: { 'Content-Type': 'application/json'}
+        })
     }
 
 

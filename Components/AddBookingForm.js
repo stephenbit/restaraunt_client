@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import {View, Text, TextInput, TouchableOpacity, StyleSheet} from 'react-native';
-import { SearchBar } from 'react-native-elements';
-import SearchInput, { createFilter } from 'react-native-search-filter';
+import React, {useState, useEffect} from 'react';
+import {View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView} from 'react-native';
+import BookingService from '../Services/BookingService';
+
 
 const AddBooking =({customers}) => {
 
@@ -9,26 +9,50 @@ const AddBooking =({customers}) => {
     [date, setDate] = useState();
     [numberOfGuests, setNumberOfGuests] = useState();
     [customerId, setCustomerId] = useState();
-    let date = new Date();
-    const todaysDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
+    [eatingPlatformId, setEatingPlatformId] = useState();
+
+    // useEffect(() => {
+    //     setItems(customers);
+    // },
+    // []
+    // )
+
+    // let date = new Date();
+    // const todaysDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
+
+        const submitBooking = () => {
+
+            const eatingPlatform = 'https://restaurantspringbackend.herokuapp.com/eatingPlatforms/' + eatingPlatformId;
+            const customer = 'https://restaurantspringbackend.herokuapp.com/customers/' + customerId;
+
+            const bookingDetails= {
+                startTime: startTime,
+                date: date,
+                numberOfGuests: numberOfGuests,
+                customer: customer,
+                eatingPlatform: eatingPlatform,
+                duration: 1
+            }
+            console.log(bookingDetails)
+            BookingService.createBooking(bookingDetails);
+        }
+    
 
 
 return (
     <View>
 
-        <SearchInput />
-
         <Text>Start Time:</Text>
                 <TextInput
                     style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                     onChangeText={text => setStartTime(text)}
-                    value='12:00'
+                    // value='12:00'
                 />
                 <Text>Date:</Text>
                 <TextInput
                     style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                     onChangeText={text => setDate(text)}
-                    value={todaysDate}
+                    // value={todaysDate}
                    
                 />
                 <Text>Table Size:</Text>
@@ -44,12 +68,16 @@ return (
                     
                 />
 
-
-
+                <Text>Table:</Text>
+                <TextInput
+                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                    onChangeText={text => setEatingPlatformId(text)}
+                    
+                />
 
 
                 <TouchableOpacity>
-                    <Text style={styles.back} >
+                    <Text onPress={submitBooking} style={styles.back} >
                         Back
                     </Text>
                 </TouchableOpacity>
