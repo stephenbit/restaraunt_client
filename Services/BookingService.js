@@ -12,6 +12,15 @@ export default {
             body: JSON.stringify(bookingDetails),
             headers: { 'Content-Type': 'application/json'}
         })
+    },
+
+    updateBooking(bookingDetails){
+        return fetch( bookingDetails.id, {
+            method: 'PUT',
+            body: JSON.stringify(bookingDetails),
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then( res => res.json())
     }
 
 

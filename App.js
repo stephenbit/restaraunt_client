@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
+
 import BookingDetails from './Components/BookingDetails';
 import Header from './Components/Header';
 import BookingsListItem from './Components/BookingsListItem';
 import AddBookingForm from './Components/AddBookingForm';
+import EditBookingForm from './Components/EditBookingForm'
+
 import CustomerService from './Services/CustomerService';
 import BookingsService from './Services/BookingService';
 import TableService from './Services/TableService';
@@ -40,11 +43,10 @@ const App = () => {
 
   }
 
-
   return (
     
     <View style={styles.view}>
-      <Header title="Header" />
+      <Header title="setHeader(header)" />
       <AddBookingForm customers={customers} ></AddBookingForm>
       {!bookingToEdit && <View style={styles.list}>
         <BookingsListItem bookings={bookings} loadEditPage={loadEditPage} />
