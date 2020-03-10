@@ -47,11 +47,12 @@ const App = () => {
     
     <View style={styles.view}>
       <Header title="setHeader(header)" />
-      <AddBookingForm customers={customers} ></AddBookingForm>
+      {/* <AddBookingForm customers={customers} ></AddBookingForm> */}
+      {/* <EditBookingForm booking={bookingToEdit} /> */}
       {!bookingToEdit && <View style={styles.list}>
         <BookingsListItem bookings={bookings} loadEditPage={loadEditPage} />
       </View>}
-      {bookingToEdit && <BookingDetails booking={bookingToEdit} backHome={backHome}/>} 
+      {bookingToEdit && <EditBookingForm booking={bookingToEdit} backHome={backHome}/>} 
     </View>
 
   );

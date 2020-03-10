@@ -15,8 +15,8 @@ export default {
     },
 
     updateBooking(bookingDetails){
-        return fetch( bookingDetails.id, {
-            method: 'PUT',
+        return fetch( bookingDetails.url, {
+            method: 'PATCH',
             body: JSON.stringify(bookingDetails),
             headers: {'Content-Type': 'application/json'}
         })

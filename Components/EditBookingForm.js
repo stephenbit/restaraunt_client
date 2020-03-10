@@ -17,7 +17,7 @@ const EditBookingForm =({booking}) => {
             const customer = 'https://restaurantspringbackend.herokuapp.com/customers/' + customerId;
 
             const bookingDetails= {
-                id: booking._links.self.href,
+                url: booking._links.self.href,
                 startTime: startTime,
                 date: date,
                 numberOfGuests: numberOfGuests,
@@ -26,7 +26,7 @@ const EditBookingForm =({booking}) => {
                 duration: 1
             }
             console.log(bookingDetails)
-            BookingService.createBooking(bookingDetails);
+            BookingService.updateBooking(bookingDetails);
         }
     
 
@@ -34,6 +34,7 @@ const EditBookingForm =({booking}) => {
 return (
     <View>
 
+        <Text>This is EditBookingForm</Text>
         <Text>Start Time:</Text>
                 <TextInput
                     style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
@@ -51,27 +52,27 @@ return (
                 <TextInput
                     style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                     onChangeText={text => setNumberOfGuests(text)}
-                    value={numberOfGuests}
+                    value={numberOfGuests.toString()}
                     
                 />
                 <Text>Customer:</Text>
                 <TextInput
                     style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                     onChangeText={text => setCustomerId(text)}
-                    value={customerId}
+                    value={customerId.toString()}
                 />
 
                 <Text>Table:</Text>
                 <TextInput
                     style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                     onChangeText={text => setEatingPlatformId(text)}
-                    value={eatingPlatformId}
+                    value={eatingPlatformId.toString()}
                 />
 
 
                 <TouchableOpacity>
                     <Text onPress={submitBooking} style={styles.back} >
-                        Back
+                        Submit
                     </Text>
                 </TouchableOpacity>
     </View>
