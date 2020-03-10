@@ -1,4 +1,4 @@
-package com.restaurant_client;
+package com.restaurantsandbox;
 
 import android.app.Application;
 import android.content.Context;

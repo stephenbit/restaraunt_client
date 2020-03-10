@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "restaurant_client.app"
-               BlueprintName = "restaurant_client"
-               ReferencedContainer = "container:restaurant_client.xcodeproj">
+               BuildableName = "restaurantSandbox.app"
+               BlueprintName = "restaurantSandbox"
+               ReferencedContainer = "container:restaurantSandbox.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "restaurant_clientTests.xctest"
-               BlueprintName = "restaurant_clientTests"
-               ReferencedContainer = "container:restaurant_client.xcodeproj">
+               BuildableName = "restaurantSandboxTests.xctest"
+               BlueprintName = "restaurantSandboxTests"
+               ReferencedContainer = "container:restaurantSandbox.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -70,12 +70,23 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "restaurant_clientTests.xctest"
-               BlueprintName = "restaurant_clientTests"
-               ReferencedContainer = "container:restaurant_client.xcodeproj">
+               BuildableName = "restaurantSandboxTests.xctest"
+               BlueprintName = "restaurantSandboxTests"
+               ReferencedContainer = "container:restaurantSandbox.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "restaurantSandbox.app"
+            BlueprintName = "restaurantSandbox"
+            ReferencedContainer = "container:restaurantSandbox.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Release"
@@ -92,9 +103,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "restaurant_client.app"
-            BlueprintName = "restaurant_client"
-            ReferencedContainer = "container:restaurant_client.xcodeproj">
+            BuildableName = "restaurantSandbox.app"
+            BlueprintName = "restaurantSandbox"
+            ReferencedContainer = "container:restaurantSandbox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -109,9 +120,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "restaurant_client.app"
-            BlueprintName = "restaurant_client"
-            ReferencedContainer = "container:restaurant_client.xcodeproj">
+            BuildableName = "restaurantSandbox.app"
+            BlueprintName = "restaurantSandbox"
+            ReferencedContainer = "container:restaurantSandbox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
