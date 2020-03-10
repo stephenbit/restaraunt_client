@@ -3,15 +3,23 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import BookingDetails from './Components/BookingDetails';
 import Header from './Components/Header';
 import BookingsListItem from './Components/BookingsListItem';
+import CustomerService from './Services/CustomerService';
 
 
 const App = () => {
 
   const [bookings, setBookings] = useState([])
   const [bookingToEdit, setBookingToEdit] = useState(null)
+  const [customers, setCustomers] = useState([])
 
   useEffect(() => {
-    getBookingsData()
+
+    
+    getBookingsData();
+    // getCustomerData();
+    CustomerService.getAllCustomers()
+      .then(customerData => setCustomers(customerData._embedded.customers))
+      // .then(data => console.log('customers in app:',customers[0].phoneNumber))
   },
     []
   )
@@ -25,7 +33,13 @@ const App = () => {
 
   }
 
-  
+  const getCustomerData = () => {
+    fetch('https://restaurantspringbackend.herokuapp.com/customers')
+      .then(res => res.json())
+      .then(customerData => setCustomers(customerData._embedded.customers))
+      .then(data => console.log('customers in app:',customers[0].phoneNumber)
+      )
+  }
 
   const getBookingsData = () => {
     fetch('https://restaurantspringbackend.herokuapp.com/bookings')
