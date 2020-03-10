@@ -7,13 +7,25 @@ import BookingsListItem from './Components/BookingsListItem';
 
 const App = () => {
 
+  const [bookings, setBookings] = useState([])
+  const [bookingToEdit, setBookingToEdit] = useState(null)
+
   useEffect(() => {
     getBookingsData()
   },
     []
   )
 
-  const [bookings, setBookings] = useState([])
+  const loadEditPage = (booking) => {
+    setBookingToEdit(booking)
+  }
+
+  const backHome = () => {
+    setBookingToEdit(null)
+
+  }
+
+  
 
   const getBookingsData = () => {
     fetch('https://restaurantspringbackend.herokuapp.com/bookings')
@@ -26,9 +38,10 @@ const App = () => {
     <View style={styles.view}>
 
       <Header title="Header" />
-      <View style={styles.list}>
-        <BookingsListItem bookings={bookings} />
-      </View>
+      {!bookingToEdit && <View style={styles.list}>
+        <BookingsListItem bookings={bookings} loadEditPage={loadEditPage} />
+      </View>}
+      {bookingToEdit && <BookingDetails booking={bookingToEdit} backHome={backHome}/>}
     </View>
   );
 };
