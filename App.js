@@ -1,45 +1,63 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, FlatList } from 'react-native';
+import BookingDetails from './Components/BookingDetails';
+import Header from './Components/Header';
+import BookingsListItem from './Components/BookingsListItem';
 
-const App =() => {
 
-  // const [countries, setCountries] = useState([])
-  // const getCountries= () => {
-  //   fetch('https://restcountries.eu/rest/v2/all')
-  //   .then(res=>res.json())
-  //   .then(countries=>setCountries(countries))
-  //   .then(banana=>console.log(countries)
-  //   )
-  // }
+const App = () => {
 
-  // useEffect(()=>{
-  //   getCountries()
-  // },
-  // []
-  // );
+  const [bookings, setBookings] = useState([])
+  const [bookingToEdit, setBookingToEdit] = useState(null)
 
-  return(
-    <View style={styles.container}>
-      <Text style={styles.text}>
-      IT WORKS!!!
-      </Text>
+  useEffect(() => {
+    getBookingsData()
+  },
+    []
+  )
+
+  const loadEditPage = (booking) => {
+    setBookingToEdit(booking)
+  }
+
+  const backHome = () => {
+    setBookingToEdit(null)
+
+  }
+
+  
+
+  const getBookingsData = () => {
+    fetch('https://restaurantspringbackend.herokuapp.com/bookings')
+      .then(res => res.json())
+      .then(bookingData => setBookings(bookingData._embedded.bookings))
+    // .then(() => console.log(bookings[0].date))
+  }
+
+  return (
+    <View style={styles.view}>
+
+      <Header title="Header" />
+      {!bookingToEdit && <View style={styles.list}>
+        <BookingsListItem bookings={bookings} loadEditPage={loadEditPage} />
+      </View>}
+      {bookingToEdit && <BookingDetails booking={bookingToEdit} backHome={backHome}/>}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: "blue"
+  view: {
+    flex: 1
   },
-  text:{
-    fontSize: 50,
-    color: 'red'
+  list: {
+    borderWidth: 2,
+    height: 500,
+    borderColor: 'red',
+    padding: 10,
+    alignContent: 'center',
+    marginHorizontal: 15
   }
-
-
 })
 
 export default App;

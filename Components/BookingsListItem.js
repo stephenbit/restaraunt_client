@@ -1,0 +1,132 @@
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+import { Overlay } from 'react-native-elements'
+
+const BookingsListItem = ({ bookings, loadEditPage }) => {
+
+    const [tableHead, setTableHead] = useState(['time', 'name', 'table', 'arrived?', 'left?'])
+    const [tableData, setTableData] = useState([])
+    const [press, setPress] = useState(false)
+    const [selectedBooking, setSelectedBooking] = useState(null)
+
+
+    const handlePress = (pressedItem) => {
+        setPress(true)
+        setSelectedBooking(pressedItem)
+        console.log(pressedItem)
+    }
+
+    const handleEdit = () => {
+        setPress(false)
+        loadEditPage(selectedBooking)
+    }
+    
+    const handleClose = () => {
+        setPress(false)
+    }
+
+ 
+
+    const tableDataNodes = bookings.map((booking) => {
+        return (<TouchableOpacity onPress={() => handlePress(booking)} >
+            <Row data={[booking.startTime, booking.customer.name, booking.eatingPlatformId, 'button', 'button']} />
+        </TouchableOpacity>
+        )
+    })
+
+    return (
+        <View>
+            {press && <Overlay isVisible={press} style={styles.container} >
+                <View>
+                    <Text style={styles.title}>Booking Details</Text>
+                    <Text style={styles.text}>
+                        Date: {selectedBooking.date}
+                    </Text>
+                    <Text style={styles.text}>
+                        Time: {selectedBooking.startTime}
+                    </Text>
+                    <Text style={styles.text}>
+                        Name: {selectedBooking.customer.name}
+                    </Text>
+                    <Text style={styles.text}>
+                        Phone Number: {selectedBooking.customer.phoneNumber}
+                    </Text>
+                    <Text style={styles.text}>
+                        Table: {selectedBooking.eatingPlatformId}
+                    </Text>
+                    <TouchableOpacity onPress={handleEdit}>
+                        <Text style={styles.edit}>
+                            Edit Booking
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={handleClose}>
+                        <Text style={styles.close}>
+                            Close
+                        </Text>
+                    </TouchableOpacity>
+                    </View>
+            </Overlay>}
+            <Table borderStyle={{ borderWidth: 2, borderColor: '#c8e1ff' }}>
+                <Row data={tableHead} />
+                {tableDataNodes}
+            </Table>
+
+            {/* <TouchableOpacity style={styles.container}
+                onPress={() => handlePress({ booking })}
+            >
+                <Text style={styles.text}>
+                    {booking.startTime}
+                </Text>
+                <Text style={styles.text}>
+                    {booking.customer.name}
+                </Text>
+                <Text style={styles.text}>
+                    Table {booking.eatingPlatformId}
+                </Text>
+            </TouchableOpacity> */}
+        </View>
+    )
+}
+
+const styles = StyleSheet.create({
+    text: {
+        fontSize: 20,
+        color: 'black',
+        paddingRight: 10,
+        paddingBottom: 15
+    },
+    container: {
+        flexDirection: 'row',
+        // display: "flex",
+        flex: 1,
+        justifyContent: "center"
+    },
+    title: {
+        fontSize: 25,
+        paddingBottom: 20,
+        fontWeight: "bold"
+    },
+    close: {
+        textAlign: "center",
+        borderColor: "green",
+        borderWidth: 2,
+        paddingVertical: 20,
+        backgroundColor: "green",
+        fontSize: 25,
+    },
+    edit: {
+        borderColor: "red",
+        backgroundColor: "red",
+        borderWidth: 2,
+        alignSelf: "flex-end",
+        padding: 10,
+        fontSize: 15
+
+    }
+
+})
+
+
+
+export default BookingsListItem;

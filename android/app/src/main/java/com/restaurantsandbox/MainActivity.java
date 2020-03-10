@@ -1,4 +1,4 @@
-package com.restaurant_client;
+package com.restaurantsandbox;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "restaurant_client";
+    return "restaurantSandbox";
   }
 }
