@@ -4,7 +4,7 @@ import BookingDetails from './Components/BookingDetails';
 import Header from './Components/Header';
 import BookingsListItem from './Components/BookingsListItem';
 import CustomerService from './Services/CustomerService';
-
+import BookingsService from './Services/BookingService'
 
 const App = () => {
 
@@ -14,9 +14,9 @@ const App = () => {
 
   useEffect(() => {
 
-    
-    getBookingsData();
-    // getCustomerData();
+    BookingsService.getAllBookings()
+      .then(bookingData => setBookings(bookingData._embedded.bookings))
+      // .then( data => console.log('bookings in app:', bookings[0]))
     CustomerService.getAllCustomers()
       .then(customerData => setCustomers(customerData._embedded.customers))
       // .then(data => console.log('customers in app:',customers[0].phoneNumber))
@@ -33,20 +33,6 @@ const App = () => {
 
   }
 
-  const getCustomerData = () => {
-    fetch('https://restaurantspringbackend.herokuapp.com/customers')
-      .then(res => res.json())
-      .then(customerData => setCustomers(customerData._embedded.customers))
-      .then(data => console.log('customers in app:',customers[0].phoneNumber)
-      )
-  }
-
-  const getBookingsData = () => {
-    fetch('https://restaurantspringbackend.herokuapp.com/bookings')
-      .then(res => res.json())
-      .then(bookingData => setBookings(bookingData._embedded.bookings))
-    // .then(() => console.log(bookings[0].date))
-  }
 
   return (
     <View style={styles.view}>
