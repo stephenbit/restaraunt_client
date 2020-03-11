@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, TextInput, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, TextInput, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 
 
 import CustomerListItem from './CustomerListItem'
@@ -20,23 +20,28 @@ useEffect(() => {
     }
 
     const selectCustomer = (customer) => {
-chooseSelectedCustomer(customer)
+        chooseSelectedCustomer(customer)
         history.push("/addbooking")
+    }
+
+    const gotoAddCustomer = () => {
+        history.push("/addcustomer")
     }
 
 
 
     return (
 
-        <View>
+        <View style={styles.container}>
            
             <TextInput 
             style={styles.textinput}
             onChangeText={text => searchFilterFunction(text)}
+            placeholder=" Search"
             ></TextInput>
             <FlatList
             data={filteredCustomers}
-            style={styles.text}
+            style={styles.flatlist}
             renderItem={({item}) => 
             <TouchableOpacity 
             onPress={() => selectCustomer(item)}
@@ -46,6 +51,11 @@ chooseSelectedCustomer(customer)
             </TouchableOpacity>
             }
             />
+             <TouchableOpacity style={styles.button} onPress={gotoAddCustomer} >
+                <Text style={styles.buttontext} >
+                    Add Customer
+                </Text>
+            </TouchableOpacity>
         </View>
 
 
@@ -62,8 +72,28 @@ styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 5
     },
-    text:{
-        fontSize: 20
+    flatlist:{
+        fontSize: 20,
+        height: 500,
+        paddingTop: 10
+    },
+    button:{
+        marginHorizontal: 15,
+        fontSize: 24,
+        backgroundColor: 'cornflowerblue',
+        marginTop: 20,
+        height: 40,
+        borderRadius:5
+    },
+    buttontext:{
+        paddingTop: 8,
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign:'center'
+    }, 
+    container:{
+        paddingTop: 10
     }
 })
 
