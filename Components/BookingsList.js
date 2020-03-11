@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import { Overlay } from 'react-native-elements'
+import BookingsListItem from './BookingsListItem'
 
 const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => {
 
-    const [tableHead, setTableHead] = useState(['time', 'name', 'table', 'arrived?', 'left?'])
+    const [tableHead, setTableHead] = useState(['time', 'name', 'table'])
     const [tableData, setTableData] = useState([])
     const [press, setPress] = useState(false)
     const [selectedBooking, setSelectedBooking] = useState(null)
@@ -34,7 +35,7 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
 
     const tableDataNodes = bookings.map((booking) => {
         return (<TouchableOpacity onPress={() => handlePress(booking)} >
-            <Row data={[booking.startTime, booking.customer.name, booking.eatingPlatformId, 'button', 'button']} />
+            <Row style={{height: 40}} textStyle={{fontSize: 20}} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
         </TouchableOpacity>
         )
     })
@@ -77,13 +78,17 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
                     </View>
             </Overlay>}
 
+            {/* <FlatList
+                data= {bookings}
+                renderItem={({item}) =>
+                <BookingsListItem booking={item}/>}
+            /> */}
+            <Table style={{height: 500, overflow: 'scroll', marginTop: 20}}>
             
-            <Table >
-            
-                <Row data={tableHead} />
-               
+                <Row textStyle={{fontSize: 20, fontWeight: 'bold'}} data={tableHead} />
+               <ScrollView>
                 {tableDataNodes}
-                
+                </ScrollView>
             </Table>
             
 

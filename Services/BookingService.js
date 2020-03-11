@@ -2,7 +2,7 @@ const baseUrl = 'https://restaurantspringbackend.herokuapp.com/bookings';
 
 export default {
     getAllBookings(){
-        return fetch(baseUrl)
+        return fetch(baseUrl + "?page=0&size=100")
         .then(res => res.json())
         },
 
