@@ -24,6 +24,8 @@ const App = () => {
 
     BookingsService.getAllBookings()
       .then(bookingData => setBookings(bookingData._embedded.bookings))
+      .then(() => setBookings(bookings.sort((a, b) => (a.startTime > b.startTime)? 1: -1)))
+      
     CustomerService.getAllCustomers()
       .then(customerData => setCustomers(customerData._embedded.customers))
     TableService.getAllTables()
@@ -37,7 +39,7 @@ const App = () => {
 
     <NativeRouter>
       <View style={styles.view}>
-        <Header title="setHeader(header)" />
+        <Header title="Bobby Jacob's Grill" />
         <Switch>
           <Route
           exact path ="/"
