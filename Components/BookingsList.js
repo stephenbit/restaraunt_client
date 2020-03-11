@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import { Overlay } from 'react-native-elements'
 
-const BookingsListItem = ({ bookings, loadEditPage }) => {
+const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => {
 
     const [tableHead, setTableHead] = useState(['time', 'name', 'table', 'arrived?', 'left?'])
     const [tableData, setTableData] = useState([])
@@ -18,8 +18,8 @@ const BookingsListItem = ({ bookings, loadEditPage }) => {
     }
 
     const handleEdit = () => {
-        setPress(false)
-        loadEditPage(selectedBooking)
+        setBookingToEdit(selectedBooking)
+        history.push("/editbooking")
     }
     
     const handleClose = () => {
@@ -129,4 +129,4 @@ const styles = StyleSheet.create({
 
 
 
-export default BookingsListItem;
+export default BookingsList;

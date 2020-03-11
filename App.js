@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
+import { NativeRouter, Switch, Route} from 'react-router-native'
 
 import BookingDetails from './Components/BookingDetails';
 import Header from './Components/Header';
-import BookingsListItem from './Components/BookingsListItem';
+import BookingsList from './Components/BookingsList';
 import AddBookingForm from './Components/AddBookingForm';
 import EditBookingForm from './Components/EditBookingForm'
 
@@ -23,20 +24,14 @@ const App = () => {
 
     BookingsService.getAllBookings()
       .then(bookingData => setBookings(bookingData._embedded.bookings))
-      // .then( data => console.log('bookings in app:', bookings[0]))
     CustomerService.getAllCustomers()
       .then(customerData => setCustomers(customerData._embedded.customers))
-      // .then(data => console.log('customers in app:',customers[0].phoneNumber))
     TableService.getAllTables()
       .then(tableData => setTables(tableData._embedded.eatingPlatforms))
-      // .then(data => console.log('tables in app:', tables[0] ))
   },
     []
   )
 
-  const loadEditPage = (booking) => {
-    setBookingToEdit(booking)
-  }
 
   const backHome = () => {
     setBookingToEdit(null)
@@ -44,16 +39,40 @@ const App = () => {
   }
 
   return (
+
+    <NativeRouter>
+      <View style={styles.view}>
+        <Header title="setHeader(header)" />
+        <Switch>
+          <Route
+          exact path ="/"
+          render={(props) => <BookingsList {...props} setBookingToEdit={setBookingToEdit} bookings={bookings} />}
+          >
+          </Route>
+          <Route
+          exact path ="/addbooking"
+          >
+            <AddBookingForm customers={customers} />
+          </Route>
+          <Route
+          exact path ="/editbooking"
+          >
+            <EditBookingForm booking={bookingToEdit}/>
+          </Route>
+        </Switch>
+      </View>
+    </NativeRouter>
+
     
-    <View style={styles.view}>
-      <Header title="setHeader(header)" />
-      {/* <AddBookingForm customers={customers} ></AddBookingForm> */}
-      {/* <EditBookingForm booking={bookingToEdit} /> */}
-      {!bookingToEdit && <View style={styles.list}>
-        <BookingsListItem bookings={bookings} loadEditPage={loadEditPage} />
-      </View>}
-      {bookingToEdit && <EditBookingForm booking={bookingToEdit} backHome={backHome}/>} 
-    </View>
+    // <View style={styles.view}>
+    //   <Header title="setHeader(header)" />
+    //   {/* <AddBookingForm customers={customers} ></AddBookingForm> */}
+    //   {/* <EditBookingForm booking={bookingToEdit} /> */}
+    //   {!bookingToEdit && <View style={styles.list}>
+    //     <BookingsList bookings={bookings} loadEditPage={loadEditPage} />
+    //   </View>}
+    //   {bookingToEdit && <EditBookingForm booking={bookingToEdit} backHome={backHome}/>} 
+    // </View>
 
   );
 };

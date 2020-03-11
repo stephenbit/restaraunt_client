@@ -12,15 +12,12 @@
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.61.5",
-
     "react-native-elements": "^1.2.7",
     "react-native-search-filter": "^0.1.5",
     "react-native-searchable-dropdown": "^1.1.1",
     "react-native-table-component": "^1.2.1",
     "react-native-vector-icons": "^6.6.0",
-    "react-native-table-component": "^1.2.1",
-    "react-native-elements": "^1.2.7",
-    "react-native-vector-icons": "^6.6.0"
+    "react-router-native": "^5.1.2"
   },
   "devDependencies": {
     "@babel/core": "7.8.7",
