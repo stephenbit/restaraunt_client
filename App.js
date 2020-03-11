@@ -35,9 +35,15 @@ const App = () => {
   const fetchBookings = () => {
     BookingsService.getAllBookings()
       .then(bookingData => {return bookingData._embedded.bookings})
-      // .then(bookingData => (bookingData.map(booking => {booking.arrived=false})))
+      // .then(bookingData => addArrivedBoolean(bookingData))
       .then(response => setBookings(response.sort((a, b) => (a.startTime > b.startTime)? 1: -1)))
     }
+
+    // const addArrivedBoolean = (bookingData) => {
+    //   const bookingObjects = bookingData.map(booking => {booking[arrived]=false})
+    //   console.log(bookingObjects);
+    //   return bookingObjects
+    // }
 
     const fetchCustomers = () => {
     CustomerService.getAllCustomers()
