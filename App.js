@@ -6,7 +6,8 @@ import BookingDetails from './Components/BookingDetails';
 import Header from './Components/Header';
 import BookingsList from './Components/BookingsList';
 import AddBookingForm from './Components/AddBookingForm';
-import EditBookingForm from './Components/EditBookingForm'
+import EditBookingForm from './Components/EditBookingForm';
+import SearchCustomers from './Components/SearchCustomers';
 
 import CustomerService from './Services/CustomerService';
 import BookingsService from './Services/BookingService';
@@ -18,6 +19,7 @@ const App = () => {
   const [bookings, setBookings] = useState([]);
   const [bookingToEdit, setBookingToEdit] = useState(null);
   const [customers, setCustomers] = useState([]);
+  const [selectedCustomer, setSelectedCustomer] = useState();
   const [tables, setTables] = useState([]);
 
   useEffect(() => {
@@ -56,6 +58,14 @@ const App = () => {
           render={(props) => <EditBookingForm {...props} booking={bookingToEdit} />}
           >  
           </Route>
+          <Route exact path="/searchcustomers"
+          render={(props) => <SearchCustomers {...props}
+          customers={customers}
+          />}
+          > 
+          </Route>
+
+          
         </Switch>
       </View>
     </NativeRouter>

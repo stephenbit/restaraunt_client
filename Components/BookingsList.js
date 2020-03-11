@@ -31,6 +31,10 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
         history.push("/addbooking")
     }
 
+    const gotoSearchCustomers = () => {
+        history.push('/searchcustomers')
+    }
+
  
 
     const tableDataNodes = bookings.map((booking) => {
@@ -100,6 +104,17 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
                 style={styles.buttontext}
                 >
                     Add Booking
+                </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+            style={styles.button}
+            onPress={gotoSearchCustomers}
+            >
+                <Text
+                style={styles.buttontext}
+                >
+                    Search Customers
                 </Text>
             </TouchableOpacity>
     
