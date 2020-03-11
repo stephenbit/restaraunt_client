@@ -37,36 +37,36 @@ const EditBookingForm =({booking, history}) => {
 
 return (
     <View>
-        <Text>Start Time:</Text>
+        <Text style={styles.label} >Start Time:</Text>
                 <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                    style={styles.textinput}
                     onChangeText={text => setStartTime(text)}
                     value={startTime}
                 />
-                <Text>Date:</Text>
+                <Text style={styles.label} >Date:</Text>
                 <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                    style={styles.textinput}
                     onChangeText={text => setDate(text)}
                     value={date}
                    
                 />
-                <Text>Table Size:</Text>
+                <Text style={styles.label} >Table Size:</Text>
                 <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                    style={styles.textinput}
                     onChangeText={text => setNumberOfGuests(text)}
                     value={numberOfGuests.toString()}
                     
                 />
-                <Text>Customer:</Text>
+                <Text style={styles.label} >Customer:</Text>
                 <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                    style={styles.textinput}                    
                     onChangeText={text => setCustomerId(text)}
                     value={customerId.toString()}
                 />
 
-                <Text>Table:</Text>
+                <Text style={styles.label} >Table:</Text>
                 <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                    style={styles.textinput}
                     onChangeText={text => setEatingPlatformId(text)}
                     value={eatingPlatformId.toString()}
                 />
@@ -109,6 +109,19 @@ const styles = StyleSheet.create({
     text:{
       fontSize: 20,
       color: 'black'
+    },
+    textinput:{
+        height: 40,
+        marginHorizontal: 15,
+        borderColor:'black',
+        borderWidth: 2,
+        borderRadius: 5
+    },
+    label:{
+        marginHorizontal:15,
+        fontSize: 20,
+        paddingVertical: 5
+        
     }
   })
 

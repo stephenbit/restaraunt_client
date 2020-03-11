@@ -141,13 +141,9 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
                     </View>
             </Overlay>}
 
-            {/* <FlatList
-                data= {bookings}
-                renderItem={({item}) =>
-                <BookingsListItem booking={item}/>}
-            /> */}
-            <Table style={{height: 400, overflow: 'scroll', marginTop: 20}}>
-            
+            <Table 
+            style={styles.table}>
+    
                 <Row textStyle={{fontSize: 20, fontWeight: 'bold'}} data={tableHead} />
                <ScrollView>
                 {tableDataNodes}
@@ -252,6 +248,12 @@ const styles = StyleSheet.create({
     },
     rowtext:{
         fontSize: 20
+    },
+    table:{
+        height: 400, 
+        overflow: 'scroll', 
+        marginTop: 20, 
+        marginHorizontal: 15
     }
 
 })

@@ -15,13 +15,16 @@ const Header =({title}) => {
 
 const styles = StyleSheet.create({
     header:{
+        backgroundColor: 'cornflowerblue',
         height: 93,
         paddingTop: 35,
         alignItems: 'center',
         justifyContent: 'center'
     },
     text:{
-        fontSize: 32
+        fontSize: 32,
+        color: 'white'
+        
     }
   })
 
