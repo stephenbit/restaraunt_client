@@ -76,10 +76,16 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
                     </TouchableOpacity>
                     </View>
             </Overlay>}
-            <Table borderStyle={{ borderWidth: 2, borderColor: '#c8e1ff' }}>
+
+            
+            <Table >
+            
                 <Row data={tableHead} />
+               
                 {tableDataNodes}
+                
             </Table>
+            
 
             <TouchableOpacity
             style={styles.button}

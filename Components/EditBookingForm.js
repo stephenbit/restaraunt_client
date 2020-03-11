@@ -3,7 +3,7 @@ import {View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView} from 'r
 import BookingService from '../Services/BookingService';
 
 
-const EditBookingForm =({booking}) => {
+const EditBookingForm =({booking, history}) => {
 
     [startTime, setStartTime] = useState(booking.startTime);
     [date, setDate] = useState(booking.date);
@@ -28,13 +28,15 @@ const EditBookingForm =({booking}) => {
             console.log(bookingDetails)
             BookingService.updateBooking(bookingDetails);
         }
+
+        const gotoHome = () => {
+            history.push("/")
+        }
     
 
 
 return (
     <View>
-
-        <Text>This is EditBookingForm</Text>
         <Text>Start Time:</Text>
                 <TextInput
                     style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
@@ -70,9 +72,16 @@ return (
                 />
 
 
-                <TouchableOpacity>
-                    <Text onPress={submitBooking} style={styles.back} >
-                        Submit
+                <TouchableOpacity style={styles.button} onPress={submitBooking} >
+                    <Text style={styles.buttontext} >
+                        Edit Booking
+                    </Text>
+                </TouchableOpacity>
+
+
+                <TouchableOpacity onPress={gotoHome} style={styles.button}>
+                    <Text  style={styles.buttontext} >
+                        Back
                     </Text>
                 </TouchableOpacity>
     </View>
@@ -82,21 +91,20 @@ return (
 }
 
 const styles = StyleSheet.create({
-    // view:{
-    //     alignItems: 'center',
-    //     justifyContent: 'center'
-    // },
-    // title:{
-    //     fontSize:40,
-    //     textAlignVertical: 'top'
-    // },
-    back: {
-        borderColor: "green",
-        backgroundColor: "green",
-        borderWidth: 2,
-        alignSelf: "flex-end",
-        padding: 10,
-        fontSize: 15
+    button:{
+        marginHorizontal: 15,
+        fontSize: 24,
+        backgroundColor: 'cornflowerblue',
+        marginTop: 20,
+        height: 40,
+        borderRadius:5
+    },
+    buttontext:{
+        paddingTop: 8,
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign:'center'
     },
     text:{
       fontSize: 20,
