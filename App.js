@@ -33,11 +33,6 @@ const App = () => {
   )
 
 
-  const backHome = () => {
-    setBookingToEdit(null)
-
-  }
-
   return (
 
     <NativeRouter>
@@ -64,15 +59,6 @@ const App = () => {
     </NativeRouter>
 
     
-    // <View style={styles.view}>
-    //   <Header title="setHeader(header)" />
-    //   {/* <AddBookingForm customers={customers} ></AddBookingForm> */}
-    //   {/* <EditBookingForm booking={bookingToEdit} /> */}
-    //   {!bookingToEdit && <View style={styles.list}>
-    //     <BookingsList bookings={bookings} loadEditPage={loadEditPage} />
-    //   </View>}
-    //   {bookingToEdit && <EditBookingForm booking={bookingToEdit} backHome={backHome}/>} 
-    // </View>
 
   );
 };

@@ -26,6 +26,10 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
         setPress(false)
     }
 
+    const gotoAddBooking = () => {
+        history.push("/addbooking")
+    }
+
  
 
     const tableDataNodes = bookings.map((booking) => {
@@ -72,19 +76,17 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
                 {tableDataNodes}
             </Table>
 
-            {/* <TouchableOpacity style={styles.container}
-                onPress={() => handlePress({ booking })}
+            <TouchableOpacity
+            style={styles.button}
+            onPress={gotoAddBooking}
             >
-                <Text style={styles.text}>
-                    {booking.startTime}
+                <Text
+                style={styles.buttontext}
+                >
+                    Add Booking
                 </Text>
-                <Text style={styles.text}>
-                    {booking.customer.name}
-                </Text>
-                <Text style={styles.text}>
-                    Table {booking.eatingPlatformId}
-                </Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
+    
         </View>
     )
 }
@@ -123,6 +125,21 @@ const styles = StyleSheet.create({
         padding: 10,
         fontSize: 15
 
+    },
+    button:{
+        marginHorizontal: 15,
+        fontSize: 24,
+        backgroundColor: 'cornflowerblue',
+        marginTop: 20,
+        height: 40,
+        borderRadius:5
+    },
+    buttontext:{
+        paddingTop: 8,
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign:'center'
     }
 
 })
