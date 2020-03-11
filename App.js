@@ -35,7 +35,6 @@ const App = () => {
   const fetchBookings = () => {
     BookingsService.getAllBookings()
       .then(bookingData => {return bookingData._embedded.bookings})
-      // .then(bookingData => (bookingData.map(booking => {booking.arrived=false})))
       .then(response => setBookings(response.sort((a, b) => (a.startTime > b.startTime)? 1: -1)))
     }
 
@@ -57,7 +56,11 @@ const App = () => {
         <Switch>
           <Route
           exact path ="/"
-          render={(props) => <BookingsList {...props} setBookingToEdit={setBookingToEdit} bookings={bookings} fetchBookings={fetchBookings} />}
+          render={(props) => <BookingsList {...props} 
+          setBookingToEdit={setBookingToEdit} 
+          bookings={bookings} 
+          fetchBookings={fetchBookings}
+          setBookings={setBookings} />}
           >
           </Route>
           <Route

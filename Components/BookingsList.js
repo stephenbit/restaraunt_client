@@ -8,20 +8,17 @@ import BookingsListItem from './BookingsListItem'
 import BookingService from '../Services/BookingService'
 
 
-const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit, fetchBookings}) => {
+const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchBookings}) => {
 
     const [tableHead, setTableHead] = useState(['time', 'name', 'table'])
     const [tableData, setTableData] = useState([])
     const [press, setPress] = useState(false)
     const [selectedBooking, setSelectedBooking] = useState(null)
-    // const [bookingArrived, setBookingArrived] = useState(false)
 
-    // useEffect(()=>{} ,[bookingArrived])
 
-    const handlePress = (pressedItem) => {
+    const handlePress = (booking) => {
         setPress(true)
-        setSelectedBooking(pressedItem)
-        console.log(pressedItem)
+        setSelectedBooking(booking)
     }
 
     const handleEdit = () => {
@@ -52,11 +49,18 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit, fetch
         }
         BookingService.updateBooking(updatedDetails)
         // fetch isn't instant so this isn't a very good way to do it. need to trigger a re-render somehow?
-        fetchBookings()
-        // setBookingArrived(true)
-        setPress(false)
-        // setBookingArrived(false)
-        // BookingService.getAllBookings()
+
+        // loops through bookings to find selectedBooking and then
+        // set the has arrived to true before setting bookings in app
+        // via function pass down as a prop
+        for(booking of bookings){
+            if(booking == selectedBooking){
+                booking.hasArrived = 'true'
+            }
+        }
+        setBookings(bookings);
+        fetchBookings();
+        setPress(false);
     }
 
     const handleLeaving = () => {
@@ -69,15 +73,15 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit, fetch
 
  
 
-    const tableDataNodes = bookings.map((booking) => {
+    const tableDataNodes = bookings.map((booking, index) => {
         if (booking.hasArrived){
             return (<TouchableOpacity onPress={() => handlePress(booking)} >
-                <Row style={styles.rowarrived} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+                <Row   style={styles.rowarrived} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
             </TouchableOpacity>
             )
         } else {
             return (<TouchableOpacity onPress={() => handlePress(booking)} >
-                <Row style={styles.row} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+                <Row  style={styles.row} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
             </TouchableOpacity>
             )
         }
