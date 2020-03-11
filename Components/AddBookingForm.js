@@ -24,7 +24,9 @@ const AddBooking =({customers, history , selectedCustomer, fetchBookings }) => {
                 numberOfGuests: numberOfGuests,
                 customer: selectedCustomer._links.self.href,
                 eatingPlatform: eatingPlatform,
-                duration: 1
+                duration: 1,
+                hasArrived: false,
+                hasLeft: false
             }
             console.log(bookingDetails)
             BookingService.createBooking(bookingDetails)

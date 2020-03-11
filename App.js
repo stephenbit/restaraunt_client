@@ -35,6 +35,7 @@ const App = () => {
   const fetchBookings = () => {
     BookingsService.getAllBookings()
       .then(bookingData => {return bookingData._embedded.bookings})
+      // .then(bookingData => (bookingData.map(booking => {booking.arrived=false})))
       .then(response => setBookings(response.sort((a, b) => (a.startTime > b.startTime)? 1: -1)))
     }
 

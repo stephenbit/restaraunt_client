@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import { Overlay } from 'react-native-elements'
@@ -14,7 +14,9 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit, fetch
     const [tableData, setTableData] = useState([])
     const [press, setPress] = useState(false)
     const [selectedBooking, setSelectedBooking] = useState(null)
+    // const [bookingArrived, setBookingArrived] = useState(false)
 
+    // useEffect(()=>{} ,[bookingArrived])
 
     const handlePress = (pressedItem) => {
         setPress(true)
@@ -51,7 +53,9 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit, fetch
         BookingService.updateBooking(updatedDetails)
         // fetch isn't instant so this isn't a very good way to do it. need to trigger a re-render somehow?
         fetchBookings()
+        // setBookingArrived(true)
         setPress(false)
+        // setBookingArrived(false)
         // BookingService.getAllBookings()
     }
 
@@ -61,7 +65,6 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit, fetch
             url: selectedBooking._links.self.href
         }
         BookingService.updateBooking(updatedDetails)
-
     }
 
  
