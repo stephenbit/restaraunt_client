@@ -26,20 +26,20 @@ const AddCustomerForm = ({history, chooseSelectedCustomer, fetchCustomers}) => {
         <View>
 
     
-                    <Text>Name:</Text>
+                    <Text style={styles.label} >Name:</Text>
                     <TextInput
-                        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                        style={styles.textinput}
                         onChangeText={text => setName(text)}
                         
                     />
-                    <Text>Phone:</Text>
+                    <Text style={styles.label} >Phone:</Text>
                     <TextInput
-                        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                        style={styles.textinput}
                         onChangeText={text => setPhone(text)}
                     />
-                    <Text>Email:</Text>
+                    <Text style={styles.label} >Email:</Text>
                     <TextInput
-                        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                        style={styles.textinput}
                         onChangeText={text => setEmail(text)}
                         
                     />
@@ -82,6 +82,19 @@ styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
         textAlign:'center'
+    },
+    textinput:{
+        height: 40,
+        marginHorizontal: 15,
+        borderColor:'black',
+        borderWidth: 2,
+        borderRadius: 5
+    },
+    label:{
+        marginHorizontal:15,
+        fontSize: 20,
+        paddingVertical: 5
+        
     }
 })
 

@@ -10,7 +10,7 @@ import BookingService from '../Services/BookingService'
 
 const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchBookings}) => {
 
-    const [tableHead, setTableHead] = useState(['time', 'name', 'table'])
+    const [tableHead, setTableHead] = useState(['Time', 'Name', 'Table'])
     const [tableData, setTableData] = useState([])
     const [press, setPress] = useState(false)
     const [selectedBooking, setSelectedBooking] = useState(null)

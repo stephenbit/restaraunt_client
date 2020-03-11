@@ -10,7 +10,9 @@ const CustomerListItem = ({customer}) => {
 
     return(
         <Text 
-        style={styles.text}>{customer.name}
+        style={styles.text}
+        >
+        {customer.name}
         </Text>
     )
 

@@ -36,12 +36,12 @@ chooseSelectedCustomer(customer)
             ></TextInput>
             <FlatList
             data={filteredCustomers}
+            style={styles.text}
             renderItem={({item}) => 
             <TouchableOpacity 
             onPress={() => selectCustomer(item)}
             >
                 <CustomerListItem 
-                
                 customer={item} />
             </TouchableOpacity>
             }
