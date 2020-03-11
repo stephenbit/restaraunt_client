@@ -63,10 +63,17 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
  
 
     const tableDataNodes = bookings.map((booking) => {
-        return (<TouchableOpacity onPress={() => handlePress(booking)} >
-            <Row style={{height: 40}} textStyle={{fontSize: 20}} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
-        </TouchableOpacity>
-        )
+        if (booking.hasArrived){
+            return (<TouchableOpacity onPress={() => handlePress(booking)} >
+                <Row style={styles.rowarrived} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+            </TouchableOpacity>
+            )
+        } else {
+            return (<TouchableOpacity onPress={() => handlePress(booking)} >
+                <Row style={styles.row} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+            </TouchableOpacity>
+            )
+        }
     })
 
     return (
@@ -224,6 +231,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
         textAlign:'center'
+    },
+    row:{
+        height: 40,
+    },
+    rowarrived:{
+        height: 40,
+        backgroundColor: 'lightgreen'
+    },
+    rowtext:{
+        fontSize: 20
     }
 
 })
