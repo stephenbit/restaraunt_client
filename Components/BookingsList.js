@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
     },
     rowarrived:{
         height: 40,
-        backgroundColor: 'lightgreen'
+        backgroundColor: 'rgba(152,251,152,0.5)'
     },
     rowtext:{
         fontSize: 20
