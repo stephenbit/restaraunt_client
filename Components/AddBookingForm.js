@@ -50,38 +50,38 @@ const AddBooking =({customers, history , selectedCustomer, fetchBookings }) => {
 return (
     <View>
 
-        <Text>Customer:</Text>
-        <Text style={styles.text}>{selectedCustomer.name}</Text>
+        <Text style={styles.label} >Customer:</Text>
+        <Text style={styles.label}>{selectedCustomer.name}</Text>
         <TouchableOpacity onPress={gotoCustomerSearch} style={styles.button}>
                     <Text  style={styles.buttontext} >
                         Search for Customer
                     </Text>
                 </TouchableOpacity>
 
-                <Text>Start Time:</Text>
+                <Text style={styles.label} >Start Time:</Text>
                 <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                    style={styles.textinput}
                     onChangeText={text => setStartTime(text)}
                     // value='12:00'
                 />
-                <Text>Date:</Text>
+                <Text style={styles.label} >Date:</Text>
                 <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                    style={styles.textinput}
                     onChangeText={text => setDate(text)}
                     // value={todaysDate}
                    
                 />
-                <Text>Table Size:</Text>
+                <Text style={styles.label} >Table Size:</Text>
                 <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                    style={styles.textinput}
                     onChangeText={text => setNumberOfGuests(text)}
                     
                 />
 
 
-                <Text>Table:</Text>
+                <Text style={styles.label} >Table:</Text>
                 <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                    style={styles.textinput}
                     onChangeText={text => setEatingPlatformId(text)}
                     
                 />
@@ -132,6 +132,19 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
         textAlign:'center'
+    },
+    textinput:{
+        height: 40,
+        marginHorizontal: 15,
+        borderColor:'black',
+        borderWidth: 2,
+        borderRadius: 5
+    },
+    label:{
+        marginHorizontal:15,
+        fontSize: 20,
+        paddingVertical: 5
+        
     }
   })
 
