@@ -4,7 +4,7 @@ import { NativeRouter, Switch, Route} from 'react-router-native'
 import BookingService from '../Services/BookingService';
 
 
-const AddBooking =({customers, history }) => {
+const AddBooking =({customers, history , selectedCustomer, fetchBookings }) => {
 
     [startTime, setStartTime] = useState();
     [date, setDate] = useState();
@@ -22,16 +22,23 @@ const AddBooking =({customers, history }) => {
                 startTime: startTime,
                 date: date,
                 numberOfGuests: numberOfGuests,
-                customer: customer,
+                customer: selectedCustomer._links.self.href,
                 eatingPlatform: eatingPlatform,
                 duration: 1
             }
             console.log(bookingDetails)
-            BookingService.createBooking(bookingDetails);
+            BookingService.createBooking(bookingDetails)
+            .then(() => fetchBookings())
+            .then(() => history.push("/"))
+            
         }
 
         const gotoHome = () => {
             history.push("/")
+        }
+
+        const gotoCustomerSearch = () => {
+            history.push("/searchcustomers")
         }
 
         
@@ -41,7 +48,15 @@ const AddBooking =({customers, history }) => {
 return (
     <View>
 
-        <Text>Start Time:</Text>
+        <Text>Customer:</Text>
+        <Text style={styles.text}>{selectedCustomer.name}</Text>
+        <TouchableOpacity onPress={gotoCustomerSearch} style={styles.button}>
+                    <Text  style={styles.buttontext} >
+                        Search for Customer
+                    </Text>
+                </TouchableOpacity>
+
+                <Text>Start Time:</Text>
                 <TextInput
                     style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                     onChangeText={text => setStartTime(text)}
@@ -60,12 +75,7 @@ return (
                     onChangeText={text => setNumberOfGuests(text)}
                     
                 />
-                <Text>Customer:</Text>
-                <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                    onChangeText={text => setCustomerId(text)}
-                    
-                />
+
 
                 <Text>Table:</Text>
                 <TextInput

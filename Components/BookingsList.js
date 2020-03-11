@@ -35,6 +35,10 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
         history.push('/searchcustomers')
     }
 
+    const gotoAddCustomer = () => {
+        history.push("/addcustomer")
+    }
+
  
 
     const tableDataNodes = bookings.map((booking) => {
@@ -87,7 +91,7 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
                 renderItem={({item}) =>
                 <BookingsListItem booking={item}/>}
             /> */}
-            <Table style={{height: 500, overflow: 'scroll', marginTop: 20}}>
+            <Table style={{height: 400, overflow: 'scroll', marginTop: 20}}>
             
                 <Row textStyle={{fontSize: 20, fontWeight: 'bold'}} data={tableHead} />
                <ScrollView>
@@ -115,6 +119,17 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
                 style={styles.buttontext}
                 >
                     Search Customers
+                </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+            style={styles.button}
+            onPress={gotoAddCustomer}
+            >
+                <Text
+                style={styles.buttontext}
+                >
+                    Add Customer
                 </Text>
             </TouchableOpacity>
     

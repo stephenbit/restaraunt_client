@@ -8,6 +8,7 @@ import BookingsList from './Components/BookingsList';
 import AddBookingForm from './Components/AddBookingForm';
 import EditBookingForm from './Components/EditBookingForm';
 import SearchCustomers from './Components/SearchCustomers';
+import AddCustomerForm from './Components/AddCustomerForm'
 
 import CustomerService from './Services/CustomerService';
 import BookingsService from './Services/BookingService';
@@ -19,23 +20,33 @@ const App = () => {
   const [bookings, setBookings] = useState([]);
   const [bookingToEdit, setBookingToEdit] = useState(null);
   const [customers, setCustomers] = useState([]);
-  const [selectedCustomer, setSelectedCustomer] = useState();
+  const [selectedCustomer, setSelectedCustomer] = useState({name:''});
   const [tables, setTables] = useState([]);
 
   useEffect(() => {
+    fetchBookings();
+    fetchCustomers();
+    fetchTables();
 
-    BookingsService.getAllBookings()
-      .then(bookingData => {return bookingData._embedded.bookings})
-      .then(response => setBookings(response.sort((a, b) => (a.startTime > b.startTime)? 1: -1)))
-      
-    CustomerService.getAllCustomers()
-      .then(customerData => setCustomers(customerData._embedded.customers))
-    TableService.getAllTables()
-      .then(tableData => setTables(tableData._embedded.eatingPlatforms))
   },
     []
   )
 
+  const fetchBookings = () => {
+    BookingsService.getAllBookings()
+      .then(bookingData => {return bookingData._embedded.bookings})
+      .then(response => setBookings(response.sort((a, b) => (a.startTime > b.startTime)? 1: -1)))
+    }
+
+    const fetchCustomers = () => {
+    CustomerService.getAllCustomers()
+      .then(customerData => setCustomers(customerData._embedded.customers))
+    } 
+
+    const fetchTables = () => {
+    TableService.getAllTables()
+      .then(tableData => setTables(tableData._embedded.eatingPlatforms))
+    }
 
   return (
 
@@ -50,7 +61,9 @@ const App = () => {
           </Route>
           <Route
           exact path ="/addbooking"
-          render={(props) => <AddBookingForm {...props} customers={customers} />}
+          render={(props) => <AddBookingForm {...props} customers={customers}
+          selectedCustomer={selectedCustomer}
+          fetchBookings={fetchBookings} />}
           >
           </Route>
           <Route
@@ -58,15 +71,26 @@ const App = () => {
           render={(props) => <EditBookingForm {...props} booking={bookingToEdit} />}
           >  
           </Route>
+
           <Route exact path="/searchcustomers"
           render={(props) => <SearchCustomers {...props}
           customers={customers}
+          chooseSelectedCustomer={setSelectedCustomer}
           />}
           > 
           </Route>
-
+         
+          <Route
+          exact path ="/addcustomer"
+          render={(props) => 
+          <AddCustomerForm 
+          {...props}
+          fetchCustomers={fetchCustomers}
           
-        </Switch>
+            />}
+          >  
+          </Route>
+          </Switch>
       </View>
     </NativeRouter>
 
