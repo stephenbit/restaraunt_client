@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import { Overlay } from 'react-native-elements'
+
 import BookingsListItem from './BookingsListItem'
+
+import BookingService from '../Services/BookingService'
+
 
 const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => {
 
@@ -39,6 +43,23 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
         history.push("/addcustomer")
     }
 
+    const handleArrival = () => {
+        const updatedDetails = {
+            hasArrived: 'true',
+            url: selectedBooking._links.self.href
+        }
+        BookingService.updateBooking(updatedDetails)
+    }
+
+    const handleLeaving = () => {
+        const updatedDetails = {
+            hasLeft: 'true',
+            url: selectedBooking._links.self.href
+        }
+        BookingService.updateBooking(updatedDetails)
+
+    }
+
  
 
     const tableDataNodes = bookings.map((booking) => {
@@ -53,7 +74,7 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
             {press && <Overlay 
             isVisible={press} 
             style={styles.overlay} 
-            height={400} 
+            height={510} 
             borderRadius={10}
             >
                 <View>
@@ -73,6 +94,22 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
                     <Text style={styles.text}>
                         Table: {selectedBooking.eatingPlatformId}
                     </Text>
+
+                    <TouchableOpacity style={styles.button} onPress={handleArrival}>
+                        <Text style={styles.buttontext}>
+                            Arrived
+                        </Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.button} onPress={handleLeaving}>
+                        <Text style={styles.buttontext}>
+                            Left
+                        </Text>
+                    </TouchableOpacity>
+
+
+
+
                     <TouchableOpacity style={styles.button} onPress={handleEdit}>
                         <Text style={styles.buttontext}>
                             Edit Booking
