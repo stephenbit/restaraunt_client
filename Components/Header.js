@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     text:{
-        fontSize: 50
+        fontSize: 32
     }
   })
 

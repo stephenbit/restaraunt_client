@@ -23,8 +23,8 @@ const App = () => {
   useEffect(() => {
 
     BookingsService.getAllBookings()
-      .then(bookingData => setBookings(bookingData._embedded.bookings))
-      .then(() => setBookings(bookings.sort((a, b) => (a.startTime > b.startTime)? 1: -1)))
+      .then(bookingData => {return bookingData._embedded.bookings})
+      .then(response => setBookings(response.sort((a, b) => (a.startTime > b.startTime)? 1: -1)))
       
     CustomerService.getAllCustomers()
       .then(customerData => setCustomers(customerData._embedded.customers))
@@ -39,7 +39,7 @@ const App = () => {
 
     <NativeRouter>
       <View style={styles.view}>
-        <Header title="Bobby Jacob's Grill" />
+        <Header title="Bobby Jacob's Bar & Grill" />
         <Switch>
           <Route
           exact path ="/"
