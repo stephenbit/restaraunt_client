@@ -56,6 +56,11 @@ useEffect(() => {
                     Add Customer
                 </Text>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => history.push('/')} >
+                <Text style={styles.buttontext} >
+                    Back
+                </Text>
+            </TouchableOpacity>
         </View>
 
 
