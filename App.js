@@ -56,7 +56,7 @@ const App = () => {
         <Switch>
           <Route
           exact path ="/"
-          render={(props) => <BookingsList {...props} setBookingToEdit={setBookingToEdit} bookings={bookings} />}
+          render={(props) => <BookingsList {...props} setBookingToEdit={setBookingToEdit} bookings={bookings} fetchBookings={fetchBookings} />}
           >
           </Route>
           <Route

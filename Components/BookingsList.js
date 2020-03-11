@@ -8,7 +8,7 @@ import BookingsListItem from './BookingsListItem'
 import BookingService from '../Services/BookingService'
 
 
-const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => {
+const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit, fetchBookings}) => {
 
     const [tableHead, setTableHead] = useState(['time', 'name', 'table'])
     const [tableData, setTableData] = useState([])
@@ -49,6 +49,10 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
             url: selectedBooking._links.self.href
         }
         BookingService.updateBooking(updatedDetails)
+        // fetch isn't instant so this isn't a very good way to do it. need to trigger a re-render somehow?
+        fetchBookings()
+        setPress(false)
+        // BookingService.getAllBookings()
     }
 
     const handleLeaving = () => {
