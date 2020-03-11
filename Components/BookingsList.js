@@ -41,7 +41,12 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
 
     return (
         <View>
-            {press && <Overlay isVisible={press} style={styles.container} >
+            {press && <Overlay 
+            isVisible={press} 
+            style={styles.overlay} 
+            height={400} 
+            borderRadius={10}
+            >
                 <View>
                     <Text style={styles.title}>Booking Details</Text>
                     <Text style={styles.text}>
@@ -54,18 +59,18 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
                         Name: {selectedBooking.customer.name}
                     </Text>
                     <Text style={styles.text}>
-                        Phone Number: {selectedBooking.customer.phoneNumber}
+                        Phone: {selectedBooking.customer.phoneNumber}
                     </Text>
                     <Text style={styles.text}>
                         Table: {selectedBooking.eatingPlatformId}
                     </Text>
-                    <TouchableOpacity onPress={handleEdit}>
-                        <Text style={styles.edit}>
+                    <TouchableOpacity style={styles.button} onPress={handleEdit}>
+                        <Text style={styles.buttontext}>
                             Edit Booking
                         </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={handleClose}>
-                        <Text style={styles.close}>
+                    <TouchableOpacity style={styles.button} onPress={handleClose}>
+                        <Text style={styles.buttontext}>
                             Close
                         </Text>
                     </TouchableOpacity>
@@ -98,11 +103,12 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         paddingBottom: 15
     },
-    container: {
+    overlay: {
         flexDirection: 'row',
         // display: "flex",
         flex: 1,
         justifyContent: "center"
+      
     },
     title: {
         fontSize: 25,

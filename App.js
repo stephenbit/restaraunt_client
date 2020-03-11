@@ -46,8 +46,8 @@ const App = () => {
           </Route>
           <Route
           exact path ="/addbooking"
+          render={(props) => <AddBookingForm {...props} customers={customers} />}
           >
-            <AddBookingForm customers={customers} />
           </Route>
           <Route
           exact path ="/editbooking"

@@ -46,8 +46,8 @@ const BookingDetails =({booking, backHome})=> {
                     onChangeText={text => onChangeTable(text)}
                     value={table.toString()}
                 />
-                <TouchableOpacity>
-                    <Text style={styles.back} onPress={backHome}>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttontext} onPress={backHome}>
                         Back
                     </Text>
                 </TouchableOpacity>

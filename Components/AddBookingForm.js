@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView} from 'react-native';
+import { NativeRouter, Switch, Route} from 'react-router-native'
 import BookingService from '../Services/BookingService';
 
 
-const AddBooking =({customers}) => {
+const AddBooking =({customers, history }) => {
 
     [startTime, setStartTime] = useState();
     [date, setDate] = useState();
@@ -11,14 +12,6 @@ const AddBooking =({customers}) => {
     [customerId, setCustomerId] = useState();
     [eatingPlatformId, setEatingPlatformId] = useState();
 
-    // useEffect(() => {
-    //     setItems(customers);
-    // },
-    // []
-    // )
-
-    // let date = new Date();
-    // const todaysDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
 
         const submitBooking = () => {
 
@@ -36,6 +29,12 @@ const AddBooking =({customers}) => {
             console.log(bookingDetails)
             BookingService.createBooking(bookingDetails);
         }
+
+        const gotoHome = () => {
+            history.push("/")
+        }
+
+        
     
 
 
@@ -75,9 +74,15 @@ return (
                     
                 />
 
+                <TouchableOpacity style={styles.button} onPress={submitBooking} >
+                    <Text style={styles.buttontext} >
+                        Add Booking
+                    </Text>
+                </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <Text onPress={submitBooking} style={styles.back} >
+
+                <TouchableOpacity onPress={gotoHome} style={styles.button}>
+                    <Text  style={styles.buttontext} >
                         Back
                     </Text>
                 </TouchableOpacity>
@@ -88,14 +93,7 @@ return (
 }
 
 const styles = StyleSheet.create({
-    // view:{
-    //     alignItems: 'center',
-    //     justifyContent: 'center'
-    // },
-    // title:{
-    //     fontSize:40,
-    //     textAlignVertical: 'top'
-    // },
+
     back: {
         borderColor: "green",
         backgroundColor: "green",
@@ -107,6 +105,21 @@ const styles = StyleSheet.create({
     text:{
       fontSize: 20,
       color: 'black'
+    },
+    button:{
+        marginHorizontal: 15,
+        fontSize: 24,
+        backgroundColor: 'cornflowerblue',
+        marginTop: 20,
+        height: 40,
+        borderRadius:5
+    },
+    buttontext:{
+        paddingTop: 8,
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign:'center'
     }
   })
 
