@@ -171,7 +171,9 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
             width={360}
             borderRadius={10}
             >
-                <Calendar />
+                <Calendar 
+                setViewCalendar={setViewCalendar} 
+                />
             </Overlay>}
 
             <TouchableOpacity onPress={goBackOneDay} >
