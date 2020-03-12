@@ -21,7 +21,7 @@ useEffect(() => {
 
     const selectCustomer = (customer) => {
         chooseSelectedCustomer(customer)
-        history.push("/addbooking")
+        history.goBack()
     }
 
     const gotoAddCustomer = () => {

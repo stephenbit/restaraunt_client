@@ -82,7 +82,13 @@ const App = () => {
           exact path ="/editbooking"
           render={(props) => <EditBookingForm {...props} 
           booking={bookingToEdit}
+          tables={tables}
           selectedTable={selectedTable}
+          setSelectedTable={setSelectedTable}
+          selectedCustomer={selectedCustomer}
+          setSelectedCustomer={setSelectedCustomer}
+          customers={customers}
+          setCustomers={setCustomers}
            />}
           >  
           </Route>
