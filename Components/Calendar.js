@@ -20,6 +20,7 @@ export default class Calendar extends Component {
         this.setState({
             selectedStartDate: date,
         });
+        console.log(date)
     }
     render() {
         const { selectedStartDate } = this.state;

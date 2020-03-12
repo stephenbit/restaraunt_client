@@ -8,7 +8,7 @@ import BookingsListItem from './BookingsListItem'
 import BookingService from '../Services/BookingService'
 
 
-const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchBookings}) => {
+const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchBookings, todaysDate}) => {
 
     const [tableHead, setTableHead] = useState(['Time', 'Name', 'Table'])
     const [tableData, setTableData] = useState([])
@@ -71,8 +71,6 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
         BookingService.updateBooking(updatedDetails)
     }
 
- 
-
     const tableDataNodes = bookings.map((booking, index) => {
         if (booking.hasArrived){
             return (<TouchableOpacity onPress={() => handlePress(booking)} >
@@ -89,6 +87,10 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
 
     return (
         <View>
+
+        <Text style={styles.dateNav}>
+        ⬅️{todaysDate}➡️
+        </Text>
             {press && <Overlay 
             isVisible={press} 
             style={styles.overlay} 
@@ -124,9 +126,6 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
                             Left
                         </Text>
                     </TouchableOpacity>
-
-
-
 
                     <TouchableOpacity style={styles.button} onPress={handleEdit}>
                         <Text style={styles.buttontext}>
@@ -194,6 +193,10 @@ const styles = StyleSheet.create({
         color: 'black',
         paddingRight: 10,
         paddingBottom: 15
+    },
+    dateNav: {
+        fontSize:20,
+        textAlign: 'center',
     },
     overlay: {
         flexDirection: 'row',
