@@ -78,9 +78,12 @@ const EditBookingForm =({booking, history, selectedCustomer, setSelectedCustomer
         console.log(bookingDetails)
         BookingService.updateBooking(bookingDetails);
         gotoHome();
+        setSelectedTable({id:''})
+        setSelectedCustomer({name:''})
     }
 
         const gotoHome = () => {
+            setSelectedTable({id:''})
             setSelectedCustomer({name:''})
             history.push("/")
         }
