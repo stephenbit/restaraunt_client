@@ -60,24 +60,24 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
 
  
 
-    const tableDataNodes = bookings.map((booking) => {
-        return (<TouchableOpacity onPress={() => handlePress(booking)} >
-            <Row style={{height: 40}} textStyle={{fontSize: 20}} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
-        </TouchableOpacity>
-        )
-    })
+    // const tableDataNodes = bookings.map((booking) => {
+    //     return (<TouchableOpacity onPress={() => handlePress(booking)} >
+    //         <Row style={{height: 40}} textStyle={{fontSize: 20}} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+    //     </TouchableOpacity>
+    //     )
+    // })
 
-    // const getTableRows = () => {
-    //     const filteredBookings = bookings.filter(booking => booking.hasLeft != true)
+    const getTableRows = () => {
+        const filteredBookings = bookings.filter(booking => booking.hasLeft != true)
 
-    //     const tableDataNodes = filteredBookings.map((booking) => {
-    //         return (<TouchableOpacity onPress={() => handlePress(booking)} >
-    //             <Row style={{height: 40}} textStyle={{fontSize: 20}} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
-    //         </TouchableOpacity>
-    //         )
-    //     })
-    //     return tableDataNodes
-    // }
+        const tableDataNodes = filteredBookings.map((booking) => {
+            return (<TouchableOpacity onPress={() => handlePress(booking)} >
+                <Row style={{height: 40}} textStyle={{fontSize: 20}} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+            </TouchableOpacity>
+            )
+        })
+        return tableDataNodes
+    }
     
 
     return (
@@ -143,8 +143,8 @@ const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => 
             
                 <Row textStyle={{fontSize: 20, fontWeight: 'bold'}} data={tableHead} />
                <ScrollView>
-                {tableDataNodes}
-                {/* {getTableRows()} */}
+                {/* {tableDataNodes} */}
+                {getTableRows()}
                 </ScrollView>
             </Table>
             
