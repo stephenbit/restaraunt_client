@@ -70,9 +70,10 @@ const App = () => {
           render={(props) => <AddBookingForm {...props} 
           customers={customers}
           selectedCustomer={selectedCustomer}
+          setSelectedCustomer={setSelectedCustomer}
           fetchBookings={fetchBookings} 
-          selectedTable={selectedTable}
           tables={tables}
+          selectedTable={selectedTable}
           setSelectedTable={setSelectedTable}
           />}
           >

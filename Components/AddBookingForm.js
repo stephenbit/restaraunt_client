@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert} from 'react-native';
 import { NativeRouter, Switch, Route} from 'react-router-native'
 import BookingService from '../Services/BookingService';
 import { Overlay } from 'react-native-elements';
@@ -7,7 +7,7 @@ import ChooseTable from './ChooseTable';
 
 
 
-const AddBooking =({customers, history , selectedCustomer, fetchBookings, selectedTable, tables, setSelectedTable }) => {
+const AddBooking =({customers, history , selectedCustomer, setSelectedCustomer, fetchBookings, selectedTable, tables, setSelectedTable }) => {
 
     [startTime, setStartTime] = useState();
     [date, setDate] = useState();
@@ -43,14 +43,21 @@ const AddBooking =({customers, history , selectedCustomer, fetchBookings, select
                 hasArrived: false,
                 hasLeft: false
             }
-            console.log(bookingDetails)
+            Alert.alert("Booking Successfully Added", 
+                "", 
+                {text: "Ok"})
             BookingService.createBooking(bookingDetails)
             .then(() => fetchBookings())
             .then(() => history.push("/"))
+
+            setSelectedTable({id:''});
+            setSelectedCustomer({name:''})
             
         }
 
         const gotoHome = () => {
+            setSelectedTable({id:''});
+            setSelectedCustomer({name:''})
             history.push("/")
         }
 
