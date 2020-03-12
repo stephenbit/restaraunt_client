@@ -14,7 +14,7 @@ const TableListItem = ({table}) => {
 
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
     text:{
         fontSize: 20
     }

@@ -70,7 +70,7 @@ const AddCustomerForm = ({history, chooseSelectedCustomer, fetchCustomers}) => {
 
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
     button:{
         marginHorizontal: 15,
         fontSize: 24,

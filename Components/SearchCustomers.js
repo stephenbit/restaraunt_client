@@ -40,18 +40,17 @@ useEffect(() => {
             placeholder=" Search"
             ></TextInput>
             <FlatList
-            data={filteredCustomers}
-            style={styles.flatlist}
-            renderItem={({item}) => 
-            <TouchableOpacity
-            style={styles.listitem} 
-            onPress={() => selectCustomer(item)}
-            >
-                <CustomerListItem 
-                style={styles.listitemtext}
-                customer={item} />
-            </TouchableOpacity>
-            }
+                data={filteredCustomers}
+                style={styles.flatlist}
+                renderItem={({item}) => 
+                    <TouchableOpacity
+                        onPress={() => selectCustomer(item)}
+                    >
+                        <CustomerListItem
+                            customer={item} 
+                        />
+                    </TouchableOpacity>
+                }
             />
              <TouchableOpacity style={styles.button} onPress={gotoAddCustomer} >
                 <Text style={styles.buttontext} >
@@ -71,7 +70,7 @@ useEffect(() => {
 
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
     textinput:{
         height: 40,
         marginHorizontal: 15,
@@ -82,12 +81,6 @@ styles = StyleSheet.create({
     flatlist:{
         height: 600,
         paddingTop: 10
-    },
-    listitem:{
-        marginTop: 15,
-    },
-    listitemtext:{
-        fontSize: 20
     },
     button:{
         marginHorizontal: 15,

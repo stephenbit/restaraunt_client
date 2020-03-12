@@ -18,9 +18,10 @@ const CustomerListItem = ({customer}) => {
 
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
     text:{
-        fontSize: 20,
+        fontSize: 25,
+        marginTop: 20
     }
 })
 
