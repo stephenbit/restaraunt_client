@@ -7,7 +7,7 @@ import ChooseTable from './ChooseTable';
 
 
 
-const AddBooking =({customers, history , selectedCustomer, fetchBookings, selectedTable, tables, setSelectedTable }) => {
+const AddBooking =({customers, history , selectedCustomer, setSelectedCustomer, fetchBookings, selectedTable, tables, setSelectedTable }) => {
 
     [startTime, setStartTime] = useState();
     [date, setDate] = useState();
@@ -49,10 +49,15 @@ const AddBooking =({customers, history , selectedCustomer, fetchBookings, select
             BookingService.createBooking(bookingDetails)
             .then(() => fetchBookings())
             .then(() => history.push("/"))
+
+            setSelectedTable({id:''});
+            setSelectedCustomer({name:''})
             
         }
 
         const gotoHome = () => {
+            setSelectedTable({id:''});
+            setSelectedCustomer({name:''})
             history.push("/")
         }
 
