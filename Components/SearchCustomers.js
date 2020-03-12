@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         borderRadius: 5
     },
     flatlist:{
-        height: 600,
+        height: 510,
         paddingTop: 10
     },
     button:{
