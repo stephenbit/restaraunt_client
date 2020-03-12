@@ -7,8 +7,8 @@ export default {
         },
 
     getBookingsByDate(){
-        
-    }
+
+    },
     
     createBooking(bookingDetails){
         return fetch(baseUrl, {
