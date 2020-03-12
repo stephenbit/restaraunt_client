@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert} from 'react-native';
 import { NativeRouter, Switch, Route} from 'react-router-native'
 import BookingService from '../Services/BookingService';
 
@@ -28,7 +28,9 @@ const AddBooking =({customers, history , selectedCustomer, fetchBookings }) => {
                 hasArrived: false,
                 hasLeft: false
             }
-            console.log(bookingDetails)
+            Alert.alert("Booking Successfully Added", 
+                "", 
+                {text: "Ok"})
             BookingService.createBooking(bookingDetails)
             .then(() => fetchBookings())
             .then(() => history.push("/"))
