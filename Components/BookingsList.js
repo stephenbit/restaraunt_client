@@ -69,18 +69,24 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
         // via function pass down as a prop
         
 
-
         setBookings(bookings);
         // fetchBookings();
         setPress(false);
     }
 
     const handleLeaving = () => {
-        const updatedDetails = {
-            hasLeft: 'true',
-            url: selectedBooking._links.self.href
-        }
-        BookingService.updateBooking(updatedDetails)
+        for(booking of bookings)
+            if(booking = selectedBooking){
+                booking.hasLeft = true
+            }
+            const updatedDetails = {
+                hasLeft: 'true',
+                url: selectedBooking._links.self.href
+            }
+         
+            BookingService.updateBooking(updatedDetails)
+            setBookings(bookings);
+            setPress(false);
     }
 
 
@@ -146,13 +152,13 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
                 </TouchableOpacity>
             )
             } else {
-            return (
-                <TouchableOpacity style={styles.button} onPress={handleArrival}>
-                    <Text style={styles.buttontext}>
-                        Arrived
-                    </Text>
-                </TouchableOpacity>
-            )
+                return (
+                    <TouchableOpacity style={styles.button} onPress={handleArrival}>
+                        <Text style={styles.buttontext}>
+                            Arrived
+                        </Text>
+                    </TouchableOpacity>
+                )
             }
         }
 
