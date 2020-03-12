@@ -83,10 +83,47 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
         BookingService.updateBooking(updatedDetails)
     }
 
- 
+
+
+    const getTableRows = () => {
+        const filteredBookings = bookings.filter(booking => booking.hasLeft != true)
+
+        // if (booking.hasArrived){
+            const tableDataNodes = filteredBookings.map((booking) => {
+                if (booking.hasArrived){
+                    return (<TouchableOpacity onPress={() => handlePress(booking)} >
+                        <Row style={styles.rowarrived} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+                    </TouchableOpacity>
+                    )
+                } else {
+                    return (<TouchableOpacity onPress={() => handlePress(booking)} >
+                        <Row style={styles.row} textStyle={styles.rowtext}data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+                    </TouchableOpacity>
+                )
+                }
+            })
+            return tableDataNodes
+
+
+        // } else {
+        //     const tableDataNodes = filteredBookings.map((booking) => {
+        //         return (<TouchableOpacity onPress={() => handlePress(booking)} >
+        //             <Row style={styles.row} textStyle={styles.rowtext}data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+        //         </TouchableOpacity>
+        //         )
+        //     })
+        //     return tableDataNodes
+        // }
+    }
+
+
 
     const tableDataNodes = bookings.map((booking, index) => {
         if (booking.hasArrived){
+
+
+
+
             return (<TouchableOpacity onPress={() => handlePress(booking)} >
                 <Row   style={styles.rowarrived} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
             </TouchableOpacity>
@@ -174,7 +211,8 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
     
                 <Row textStyle={{fontSize: 20, fontWeight: 'bold'}} data={tableHead} />
                <ScrollView>
-                {tableDataNodes}
+                {/* {tableDataNodes} */}
+                {getTableRows()}
                 </ScrollView>
             </Table>
             
