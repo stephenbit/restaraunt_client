@@ -10,8 +10,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "moment": "^2.24.0",
     "react": "16.9.0",
     "react-native": "0.61.5",
+    "react-native-calendar-picker": "^6.0.5",
     "react-native-elements": "^1.2.7",
     "react-native-search-filter": "^0.1.5",
     "react-native-searchable-dropdown": "^1.1.1",
