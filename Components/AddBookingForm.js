@@ -4,7 +4,8 @@ import { NativeRouter, Switch, Route} from 'react-router-native'
 import BookingService from '../Services/BookingService';
 
 
-const AddBooking =({customers, history , selectedCustomer, fetchBookings }) => {
+
+const AddBooking =({customers, history , selectedCustomer, fetchBookings, selectedTable }) => {
 
     [startTime, setStartTime] = useState();
     [date, setDate] = useState();
@@ -41,6 +42,10 @@ const AddBooking =({customers, history , selectedCustomer, fetchBookings }) => {
 
         const gotoCustomerSearch = () => {
             history.push("/searchcustomers")
+        }
+
+        const gotoChooseTable = () => {
+            history.push("/choosetable")
         }
 
         
@@ -80,11 +85,18 @@ return (
 
 
                 <Text style={styles.label} >Table:</Text>
-                <TextInput
+                <Text style={styles.label}>{selectedTable.id}</Text>
+                {/* <TextInput
                     style={styles.textinput}
                     onChangeText={text => setEatingPlatformId(text)}
                     
-                />
+                /> */}
+
+                <TouchableOpacity style={styles.button} onPress={gotoChooseTable} >
+                    <Text style={styles.buttontext} >
+                        Choose Table
+                    </Text>
+                </TouchableOpacity>
 
                 <TouchableOpacity style={styles.button} onPress={submitBooking} >
                     <Text style={styles.buttontext} >

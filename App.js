@@ -8,7 +8,8 @@ import BookingsList from './Components/BookingsList';
 import AddBookingForm from './Components/AddBookingForm';
 import EditBookingForm from './Components/EditBookingForm';
 import SearchCustomers from './Components/SearchCustomers';
-import AddCustomerForm from './Components/AddCustomerForm'
+import AddCustomerForm from './Components/AddCustomerForm';
+import ChooseTable from './Components/ChooseTable';
 
 import CustomerService from './Services/CustomerService';
 import BookingsService from './Services/BookingService';
@@ -22,6 +23,7 @@ const App = () => {
   const [customers, setCustomers] = useState([]);
   const [selectedCustomer, setSelectedCustomer] = useState({name:''});
   const [tables, setTables] = useState([]);
+  const [selectedTable, setSelectedTable] = useState({id:''});
 
   useEffect(() => {
     fetchBookings();
@@ -65,14 +67,20 @@ const App = () => {
           </Route>
           <Route
           exact path ="/addbooking"
-          render={(props) => <AddBookingForm {...props} customers={customers}
+          render={(props) => <AddBookingForm {...props} 
+          customers={customers}
           selectedCustomer={selectedCustomer}
-          fetchBookings={fetchBookings} />}
+          fetchBookings={fetchBookings} 
+          selectedTable={selectedTable}
+          />}
           >
           </Route>
           <Route
           exact path ="/editbooking"
-          render={(props) => <EditBookingForm {...props} booking={bookingToEdit} />}
+          render={(props) => <EditBookingForm {...props} 
+          booking={bookingToEdit}
+          selectedTable={selectedTable}
+           />}
           >  
           </Route>
 
@@ -80,6 +88,14 @@ const App = () => {
           render={(props) => <SearchCustomers {...props}
           customers={customers}
           chooseSelectedCustomer={setSelectedCustomer}
+          />}
+          > 
+          </Route>
+
+          <Route exact path="/choosetable"
+          render={(props) => <ChooseTable {...props}
+          tables={tables}
+          setSelectedTable={setSelectedTable}
           />}
           > 
           </Route>
