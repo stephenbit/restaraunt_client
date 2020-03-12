@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, TextInput, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, View, TextInput, TouchableOpacity, StyleSheet, Alert} from 'react-native';
 
 import CustomerService from '../Services/CustomerService'
 
@@ -15,6 +15,9 @@ const AddCustomerForm = ({history, chooseSelectedCustomer, fetchCustomers}) => {
             phoneNumber: phone,
             email: email
         }
+        Alert.alert("Customer Successfully Added", 
+                "", 
+                {text: "Ok"})
         CustomerService.createCustomer(customerDetails)
         .then(response => fetchCustomers())
         .then(response => history.push("/"))
