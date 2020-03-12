@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView } from 'react-native';
-import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { Table, Row} from 'react-native-table-component';
 import { Overlay } from 'react-native-elements'
 
-import BookingsListItem from './BookingsListItem';
 import Calendar from './Calendar';
 
 import BookingService from '../Services/BookingService'
@@ -19,6 +18,7 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
     const [displayedDate, setDisplayedDate] = useState('');
     const [displayedDateAsDate, setdisplayedDateAsDate] = useState({});
     const [viewCalendar, setViewCalendar] = useState(false);
+    const [pickedDate, setPickedDate] = useState('');
 
     useEffect(() => {
         getDateAsDate();
@@ -90,9 +90,7 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
 
     const getTableRows = () => {
         const filteredBookings = bookings.filter(booking => booking.hasLeft != true)
-
-        // if (booking.hasArrived){
-            const tableDataNodes = filteredBookings.map((booking) => {
+        const tableDataNodes = filteredBookings.map((booking) => {
                 if (booking.hasArrived){
                     return (<TouchableOpacity onPress={() => handlePress(booking)} >
                         <Row style={styles.rowarrived} textStyle={styles.rowtext} flexArr={[1, 3, 1.5]} data={[booking.startTime, booking.customer.name, booking.numberOfGuests]} />
@@ -164,57 +162,30 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
     return (
         <View>
 
-{viewCalendar && <Overlay 
-            isVisible={viewCalendar} 
-            style={styles.overlay} 
-            height={500} 
-            width={360}
-            borderRadius={10}
-            >
-                <Calendar 
-                setViewCalendar={setViewCalendar} 
-                />
+{viewCalendar && <Overlay isVisible={viewCalendar} style={styles.overlay} height={500} width={360} borderRadius={10}>
+                <Calendar setViewCalendar={setViewCalendar} setPickedDate={setPickedDate} />
             </Overlay>}
 
             <TouchableOpacity onPress={goBackOneDay} >
-                <Text style={styles.dateNav} >
-                    Back
-                </Text>
+                <Text style={styles.dateNav} >Back</Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={showCalendar} >
-            <Text style={styles.dateNav}>
-                {displayedDate}
-            </Text>
+                <Text style={styles.dateNav}>{displayedDate}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={goForwardOneDay} >
-            <Text style={styles.dateNav}>Forward</Text>
+                <Text style={styles.dateNav}>Forward</Text>
             </TouchableOpacity>
 
-            {press && <Overlay 
-            isVisible={press} 
-            style={styles.overlay} 
-            height={510} 
-            borderRadius={10}
-            >
+            {press && <Overlay isVisible={press} style={styles.overlay} height={510} borderRadius={10}>
                 <View>
                     <Text style={styles.title}>Booking Details</Text>
-                    <Text style={styles.text}>
-                        Date: {selectedBooking.date}
-                    </Text>
-                    <Text style={styles.text}>
-                        Time: {selectedBooking.startTime}
-                    </Text>
-                    <Text style={styles.text}>
-                        Name: {selectedBooking.customer.name}
-                    </Text>
-                    <Text style={styles.text}>
-                        Phone: {selectedBooking.customer.phoneNumber}
-                    </Text>
-                    <Text style={styles.text}>
-                        Table: {selectedBooking.eatingPlatformId}
-                    </Text>
+                    <Text style={styles.text}>Date: {selectedBooking.date}</Text>
+                    <Text style={styles.text}>Time: {selectedBooking.startTime}</Text>
+                    <Text style={styles.text}>Name: {selectedBooking.customer.name}</Text>
+                    <Text style={styles.text}>Phone: {selectedBooking.customer.phoneNumber}</Text>
+                    <Text style={styles.text}>Table: {selectedBooking.eatingPlatformId}</Text>
 
                     {arrivedButtonStyling()}
 
@@ -224,19 +195,18 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
                         </Text>
                     </TouchableOpacity>
 
-
-
-
                     <TouchableOpacity style={styles.button} onPress={handleEdit}>
                         <Text style={styles.buttontext}>
                             Edit Booking
                         </Text>
                     </TouchableOpacity>
+
                     <TouchableOpacity style={styles.button} onPress={handleClose}>
                         <Text style={styles.buttontext}>
                             Close
                         </Text>
                     </TouchableOpacity>
+
                     </View>
             </Overlay>}
 
@@ -251,35 +221,20 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
             </Table>
             
 
-            <TouchableOpacity
-            style={styles.button}
-            onPress={gotoAddBooking}
-            >
-                <Text
-                style={styles.buttontext}
-                >
+            <TouchableOpacity style={styles.button} onPress={gotoAddBooking} >
+                <Text style={styles.buttontext} >
                     Add Booking
                 </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity
-            style={styles.button}
-            onPress={gotoSearchCustomers}
-            >
-                <Text
-                style={styles.buttontext}
-                >
+            <TouchableOpacity style={styles.button} onPress={gotoSearchCustomers} >
+                <Text style={styles.buttontext} >
                     Search Customers
                 </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity
-            style={styles.button}
-            onPress={gotoAddCustomer}
-            >
-                <Text
-                style={styles.buttontext}
-                >
+            <TouchableOpacity style={styles.button} onPress={gotoAddCustomer} >
+                <Text style={styles.buttontext} >
                     Add Customer
                 </Text>
             </TouchableOpacity>

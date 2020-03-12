@@ -3,21 +3,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 
 
- const Calendar = ({setViewCalendar}) =>  {
+ const Calendar = ({setViewCalendar, setPickedDate}) =>  {
  
-    const [selectedStartDate, setSelectedStartDate] = useState('');
 
     const pickDate = (date) => {
-        setSelectedStartDate(date);
-        console.log(date)
+        setPickedDate(date);
+        console.log(date);
         setViewCalendar(false);
     }
         return (
             <View style={styles.container}>
-                <CalendarPicker
-                
-                onDateChange={pickDate}
-                />
+                <CalendarPicker onDateChange={pickDate} />
             </View>
         )
     }
