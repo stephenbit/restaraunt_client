@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import { Overlay } from 'react-native-elements'
-
 import BookingsListItem from './BookingsListItem'
-
 import BookingService from '../Services/BookingService'
 
 
-const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchBookings}) => {
+const BookingsList = ({ bookings, loadEditPage, history, setBookingToEdit }) => {
 
-    const [tableHead, setTableHead] = useState(['Time', 'Name', 'Table'])
+    const [tableHead, setTableHead] = useState(['time', 'name', 'table'])
     const [tableData, setTableData] = useState([])
     const [press, setPress] = useState(false)
     const [selectedBooking, setSelectedBooking] = useState(null)
 
 
-    const handlePress = (booking) => {
+    const handlePress = (pressedItem) => {
         setPress(true)
-        setSelectedBooking(booking)
+        setSelectedBooking(pressedItem)
+        console.log(pressedItem)
     }
 
     const handleEdit = () => {
@@ -48,19 +47,6 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
             url: selectedBooking._links.self.href
         }
         BookingService.updateBooking(updatedDetails)
-        // fetch isn't instant so this isn't a very good way to do it. need to trigger a re-render somehow?
-
-        // loops through bookings to find selectedBooking and then
-        // set the has arrived to true before setting bookings in app
-        // via function pass down as a prop
-        for(booking of bookings){
-            if(booking == selectedBooking){
-                booking.hasArrived = 'true'
-            }
-        }
-        setBookings(bookings);
-        fetchBookings();
-        setPress(false);
     }
 
     const handleLeaving = () => {
@@ -69,23 +55,30 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
             url: selectedBooking._links.self.href
         }
         BookingService.updateBooking(updatedDetails)
+
     }
 
  
 
-    const tableDataNodes = bookings.map((booking, index) => {
-        if (booking.hasArrived){
-            return (<TouchableOpacity onPress={() => handlePress(booking)} >
-                <Row   style={styles.rowarrived} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
-            </TouchableOpacity>
-            )
-        } else {
-            return (<TouchableOpacity onPress={() => handlePress(booking)} >
-                <Row  style={styles.row} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
-            </TouchableOpacity>
-            )
-        }
+    const tableDataNodes = bookings.map((booking) => {
+        return (<TouchableOpacity onPress={() => handlePress(booking)} >
+            <Row style={{height: 40}} textStyle={{fontSize: 20}} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+        </TouchableOpacity>
+        )
     })
+
+    // const getTableRows = () => {
+    //     const filteredBookings = bookings.filter(booking => booking.hasLeft != true)
+
+    //     const tableDataNodes = filteredBookings.map((booking) => {
+    //         return (<TouchableOpacity onPress={() => handlePress(booking)} >
+    //             <Row style={{height: 40}} textStyle={{fontSize: 20}} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+    //         </TouchableOpacity>
+    //         )
+    //     })
+    //     return tableDataNodes
+    // }
+    
 
     return (
         <View>
@@ -141,12 +134,17 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
                     </View>
             </Overlay>}
 
-            <Table 
-            style={styles.table}>
-    
+            {/* <FlatList
+                data= {bookings}
+                renderItem={({item}) =>
+                <BookingsListItem booking={item}/>}
+            /> */}
+            <Table style={{height: 400, overflow: 'scroll', marginTop: 20}}>
+            
                 <Row textStyle={{fontSize: 20, fontWeight: 'bold'}} data={tableHead} />
                <ScrollView>
                 {tableDataNodes}
+                {/* {getTableRows()} */}
                 </ScrollView>
             </Table>
             
@@ -238,22 +236,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
         textAlign:'center'
-    },
-    row:{
-        height: 40,
-    },
-    rowarrived:{
-        height: 40,
-        backgroundColor: 'rgba(152,251,152,0.5)'
-    },
-    rowtext:{
-        fontSize: 20
-    },
-    table:{
-        height: 400, 
-        overflow: 'scroll', 
-        marginTop: 20, 
-        marginHorizontal: 15
     }
 
 })
