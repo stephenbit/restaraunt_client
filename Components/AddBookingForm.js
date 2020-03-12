@@ -38,7 +38,7 @@ const AddBooking =({customers, history , selectedCustomer, setSelectedCustomer, 
                 date: date,
                 numberOfGuests: numberOfGuests,
                 customer: selectedCustomer._links.self.href,
-                eatingPlatform: eatingPlatform,
+                eatingPlatform: selectedTable._links.self.href,
                 duration: 1,
                 hasArrived: false,
                 hasLeft: false
