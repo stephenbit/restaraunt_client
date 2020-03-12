@@ -43,23 +43,35 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
     }
 
     const handleArrival = () => {
-        const updatedDetails = {
-            hasArrived: 'true',
-            url: selectedBooking._links.self.href
+        let updatedDetails = {}
+        for(booking of bookings){
+            if(booking == selectedBooking){
+                if (booking.hasArrived === false){
+                    booking.hasArrived = true
+                } else {
+                    booking.hasArrived = false
+                }
+                updatedDetails = {
+                    hasArrived: booking.hasArrived,
+                    url: selectedBooking._links.self.href
+                }
+            }
         }
+        // const updatedDetails = {
+        //     hasArrived: 'true',
+        //     url: selectedBooking._links.self.href
+        // }
         BookingService.updateBooking(updatedDetails)
         // fetch isn't instant so this isn't a very good way to do it. need to trigger a re-render somehow?
 
         // loops through bookings to find selectedBooking and then
         // set the has arrived to true before setting bookings in app
         // via function pass down as a prop
-        for(booking of bookings){
-            if(booking == selectedBooking){
-                booking.hasArrived = 'true'
-            }
-        }
+        
+
+
         setBookings(bookings);
-        fetchBookings();
+        // fetchBookings();
         setPress(false);
     }
 
