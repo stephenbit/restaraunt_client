@@ -99,6 +99,26 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
         }
     })
 
+    const arrivedButtonStyling = () => {
+        if (selectedBooking.hasArrived === true){
+            return (
+                <TouchableOpacity style={styles.arrivedbutton} onPress={handleArrival}>
+                    <Text style={styles.buttontext}>
+                        Arrived
+                    </Text>
+                </TouchableOpacity>
+            )
+            } else {
+            return (
+                <TouchableOpacity style={styles.button} onPress={handleArrival}>
+                    <Text style={styles.buttontext}>
+                        Arrived
+                    </Text>
+                </TouchableOpacity>
+            )
+            }
+        }
+
     return (
         <View>
             {press && <Overlay 
@@ -125,11 +145,7 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
                         Table: {selectedBooking.eatingPlatformId}
                     </Text>
 
-                    <TouchableOpacity style={styles.button} onPress={handleArrival}>
-                        <Text style={styles.buttontext}>
-                            Arrived
-                        </Text>
-                    </TouchableOpacity>
+                    {arrivedButtonStyling()}
 
                     <TouchableOpacity style={styles.button} onPress={handleLeaving}>
                         <Text style={styles.buttontext}>
@@ -240,6 +256,14 @@ const styles = StyleSheet.create({
         marginHorizontal: 15,
         fontSize: 24,
         backgroundColor: 'cornflowerblue',
+        marginTop: 20,
+        height: 40,
+        borderRadius:5
+    },
+    arrivedbutton:{
+        marginHorizontal: 15,
+        fontSize: 24,
+        backgroundColor: 'green',
         marginTop: 20,
         height: 40,
         borderRadius:5
