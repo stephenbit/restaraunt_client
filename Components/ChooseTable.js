@@ -4,11 +4,13 @@ import {Text, View, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import TableListItem from './TableListItem';
 
 
-const ChooseTable = ({tables, setSelectedTable, history, setPress, setTable}) => {
+const ChooseTable = ({tables, setSelectedTable, history, setPress, setTable, chooseTable}) => {
 
     const selectTable = (table) => {
+
+        console.log('table in choose table',table.id);
+
         setSelectedTable(table);
-        console.log('table in choose table',table);
         setTable(table)
         setPress(false)
     }

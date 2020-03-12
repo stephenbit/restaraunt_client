@@ -19,7 +19,7 @@ const EditBookingForm =({booking, history, selectedCustomer, setSelectedCustomer
 
     useEffect(() => {
         setCustomer()
-        setTable()
+        checkTable()
     },[])
 
     const filterTables = () => {
@@ -38,10 +38,20 @@ const EditBookingForm =({booking, history, selectedCustomer, setSelectedCustomer
         }   
     }
 
-    const setTable = () => {
+    const checkTable = () => {
         if(eatingPlatformId != selectedTable.id && selectedTable.id != ''){
-            setEatingPlatformId(selectedTable.id)
+            setEatingPlatformId(selectedTable.id)        
         }
+    }
+
+    const setTable = (table) => {
+        console.log('in set table in edit booking form');
+        console.log(table.id);
+        
+        
+        setSelectedTable(table)
+        setEatingPlatformId(table.id)
+
     }
 
     const gotoChooseTable = () => {
