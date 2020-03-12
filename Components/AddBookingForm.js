@@ -17,6 +17,7 @@ const AddBooking =({customers, history , selectedCustomer, setSelectedCustomer, 
     [press, setPress] = useState(false);
     [validTables, setValidTables] = useState([]);
 
+    const setTable = () => {}
 
     const filterTables = () => {
         let arrayOfTables = tables
@@ -139,6 +140,7 @@ return (
                 borderRadius={10}>
 
                     <ChooseTable
+                    setTable={setTable}
                     tables={validTables}
                     setSelectedTable={setSelectedTable}
                     setPress={setPress}
