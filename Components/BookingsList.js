@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView } from '
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import { Overlay } from 'react-native-elements'
 
-import BookingsListItem from './BookingsListItem'
+import BookingsListItem from './BookingsListItem';
+import Calendar from './Calendar';
 
 import BookingService from '../Services/BookingService'
 
@@ -14,7 +15,14 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
     const [tableData, setTableData] = useState([])
     const [press, setPress] = useState(false)
     const [selectedBooking, setSelectedBooking] = useState(null)
+    const [todaysDate, setTodaysDate] = useState('');
+    const [displayedDate, setDisplayedDate] = useState('');
+    const [displayedDateAsDate, setdisplayedDateAsDate] = useState({});
+    const [viewCalendar, setViewCalendar] = useState(false);
 
+    useEffect(() => {
+        getDateAsDate();
+    },[])
 
     const handlePress = (booking) => {
         setPress(true)
@@ -57,20 +65,9 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
                 }
             }
         }
-        // const updatedDetails = {
-        //     hasArrived: 'true',
-        //     url: selectedBooking._links.self.href
-        // }
+     
         BookingService.updateBooking(updatedDetails)
-        // fetch isn't instant so this isn't a very good way to do it. need to trigger a re-render somehow?
-
-        // loops through bookings to find selectedBooking and then
-        // set the has arrived to true before setting bookings in app
-        // via function pass down as a prop
-        
-
         setBookings(bookings);
-        // fetchBookings();
         setPress(false);
     }
 
@@ -132,8 +129,67 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
             }
         }
 
+        function getDateAsDate() {
+            let today = new Date();
+            setdisplayedDateAsDate(today);
+            turnDateToString(today);
+          }
+        
+         const turnDateToString = (date) => {
+            let dd = String(date.getDate()).padStart(2, '0');
+            let mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+            let yyyy = date.getFullYear();
+            stringdate = dd + '/' + mm + '/' + yyyy;
+            setDisplayedDate(stringdate)
+         }
+        
+        
+          const goForwardOneDay = () => {
+            displayedDateAsDate.setDate(displayedDateAsDate.getDate() +1)
+            setdisplayedDateAsDate(displayedDateAsDate)
+            turnDateToString(displayedDateAsDate)
+          }
+        
+          const goBackOneDay = () => {
+            displayedDateAsDate.setDate(displayedDateAsDate.getDate() -1)
+            setdisplayedDateAsDate(displayedDateAsDate)
+            turnDateToString(displayedDateAsDate)
+          }
+
+          const showCalendar = () => {
+              setViewCalendar(true)
+          }
+
+
     return (
         <View>
+
+{viewCalendar && <Overlay 
+            isVisible={viewCalendar} 
+            style={styles.overlay} 
+            height={500} 
+            width={360}
+            borderRadius={10}
+            >
+                <Calendar />
+            </Overlay>}
+
+            <TouchableOpacity onPress={goBackOneDay} >
+                <Text style={styles.dateNav} >
+                    Back
+                </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={showCalendar} >
+            <Text style={styles.dateNav}>
+                {displayedDate}
+            </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={goForwardOneDay} >
+            <Text style={styles.dateNav}>Forward</Text>
+            </TouchableOpacity>
+
             {press && <Overlay 
             isVisible={press} 
             style={styles.overlay} 
@@ -305,6 +361,10 @@ const styles = StyleSheet.create({
         overflow: 'scroll', 
         marginTop: 20, 
         marginHorizontal: 15
+    },    
+    dateNav: {
+        fontSize: 20,
+        textAlign: 'center'
     }
 
 })
