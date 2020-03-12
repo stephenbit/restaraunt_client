@@ -47,7 +47,6 @@ useEffect(() => {
                         onPress={() => selectCustomer(item)}
                     >
                         <CustomerListItem
-                            style={styles.listitem} 
                             customer={item} 
                         />
                     </TouchableOpacity>
@@ -82,12 +81,6 @@ const styles = StyleSheet.create({
     flatlist:{
         height: 600,
         paddingTop: 10
-    },
-    listitem:{
-        marginTop: 15,
-    },
-    listitemtext:{
-        fontSize: 20
     },
     button:{
         marginHorizontal: 15,

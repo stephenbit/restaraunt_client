@@ -34,7 +34,7 @@ const ChooseTable = ({tables, setSelectedTable, history, setPress}) => {
 
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
     textinput:{
         height: 40,
         marginHorizontal: 15,
