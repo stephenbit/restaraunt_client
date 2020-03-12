@@ -10,7 +10,7 @@ import BookingService from '../Services/BookingService'
 
 const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchBookings}) => {
 
-    const [tableHead, setTableHead] = useState(['Time', 'Name', 'Table'])
+    const [tableHead, setTableHead] = useState(['Time', 'Name', 'Party Size'])
     const [tableData, setTableData] = useState([])
     const [press, setPress] = useState(false)
     const [selectedBooking, setSelectedBooking] = useState(null)
@@ -98,49 +98,19 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
             const tableDataNodes = filteredBookings.map((booking) => {
                 if (booking.hasArrived){
                     return (<TouchableOpacity onPress={() => handlePress(booking)} >
-                        <Row style={styles.rowarrived} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+                        <Row style={styles.rowarrived} textStyle={styles.rowtext} flexArr={[1, 3, 1.5]} data={[booking.startTime, booking.customer.name, booking.numberOfGuests]} />
                     </TouchableOpacity>
                     )
                 } else {
                     return (<TouchableOpacity onPress={() => handlePress(booking)} >
-                        <Row style={styles.row} textStyle={styles.rowtext}data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+                        <Row style={styles.row} textStyle={styles.rowtext} flexArr={[1, 3, 1.5]} data={[booking.startTime, booking.customer.name, booking.numberOfGuests]} />
                     </TouchableOpacity>
                 )
                 }
             })
             return tableDataNodes
-
-
-        // } else {
-        //     const tableDataNodes = filteredBookings.map((booking) => {
-        //         return (<TouchableOpacity onPress={() => handlePress(booking)} >
-        //             <Row style={styles.row} textStyle={styles.rowtext}data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
-        //         </TouchableOpacity>
-        //         )
-        //     })
-        //     return tableDataNodes
-        // }
     }
 
-
-
-    const tableDataNodes = bookings.map((booking, index) => {
-        if (booking.hasArrived){
-
-
-
-
-            return (<TouchableOpacity onPress={() => handlePress(booking)} >
-                <Row   style={styles.rowarrived} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
-            </TouchableOpacity>
-            )
-        } else {
-            return (<TouchableOpacity onPress={() => handlePress(booking)} >
-                <Row  style={styles.row} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
-            </TouchableOpacity>
-            )
-        }
-    })
 
     const arrivedButtonStyling = () => {
         if (selectedBooking.hasArrived === true){
@@ -215,7 +185,7 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
             <Table 
             style={styles.table}>
     
-                <Row textStyle={{fontSize: 20, fontWeight: 'bold'}} data={tableHead} />
+                <Row textStyle={{fontSize: 20, fontWeight: 'bold', textAlign: 'center'}} data={tableHead} flexArr={[1, 3, 1.5]}/>
                <ScrollView>
                 {/* {tableDataNodes} */}
                 {getTableRows()}
@@ -277,7 +247,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 25,
         paddingBottom: 20,
-        fontWeight: "bold"
+        fontWeight: "bold",
     },
     close: {
         textAlign: "center",
@@ -327,7 +297,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(152,251,152,0.5)'
     },
     rowtext:{
-        fontSize: 20
+        fontSize: 20,
+        textAlign: 'center'
     },
     table:{
         height: 400, 
