@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
-import { NativeRouter, Switch, Route} from 'react-router-native'
+import { NativeRouter, Switch, Route } from 'react-router-native'
 
 import BookingDetails from './Components/BookingDetails';
 import Header from './Components/Header';
@@ -14,6 +14,7 @@ import ChooseTable from './Components/ChooseTable';
 import CustomerService from './Services/CustomerService';
 import BookingsService from './Services/BookingService';
 import TableService from './Services/TableService';
+import CalendarPicker from 'react-native-calendar-picker/CalendarPicker';
 
 
 const App = () => {
@@ -21,9 +22,9 @@ const App = () => {
   const [bookings, setBookings] = useState([]);
   const [bookingToEdit, setBookingToEdit] = useState(null);
   const [customers, setCustomers] = useState([]);
-  const [selectedCustomer, setSelectedCustomer] = useState({name:''});
+  const [selectedCustomer, setSelectedCustomer] = useState({ name: '' });
   const [tables, setTables] = useState([]);
-  const [selectedTable, setSelectedTable] = useState({id:''});
+  const [selectedTable, setSelectedTable] = useState({ id: '' });
 
   useEffect(() => {
     fetchBookings();
@@ -36,88 +37,93 @@ const App = () => {
 
   const fetchBookings = () => {
     BookingsService.getAllBookings()
-      .then(bookingData => {return bookingData._embedded.bookings})
-      .then(response => setBookings(response.sort((a, b) => (a.startTime > b.startTime)? 1: -1)))
-    }
+      .then(bookingData => { return bookingData._embedded.bookings })
+      .then(response => setBookings(response.sort((a, b) => (a.startTime > b.startTime) ? 1 : -1)))
+  }
 
-    const fetchCustomers = () => {
+  const fetchCustomers = () => {
     CustomerService.getAllCustomers()
       .then(customerData => setCustomers(customerData._embedded.customers))
-    } 
+  }
 
-    const fetchTables = () => {
+  const fetchTables = () => {
     TableService.getAllTables()
       .then(tableData => setTables(tableData._embedded.eatingPlatforms))
-    }
+  }
 
   return (
 
+
     <NativeRouter>
+
+
       <View style={styles.view}>
         <Header title="Bobby Jacob's Bar & Grill" />
+
+        <CalendarPicker />
         <Switch>
           <Route
-          exact path ="/"
-          render={(props) => <BookingsList {...props} 
-          setBookingToEdit={setBookingToEdit} 
-          bookings={bookings} 
-          fetchBookings={fetchBookings}
-          setBookings={setBookings} />}
+            exact path="/"
+            render={(props) => <BookingsList {...props}
+              setBookingToEdit={setBookingToEdit}
+              bookings={bookings}
+              fetchBookings={fetchBookings}
+              setBookings={setBookings} />}
           >
           </Route>
           <Route
-          exact path ="/addbooking"
-          render={(props) => <AddBookingForm {...props} 
-          customers={customers}
-          selectedCustomer={selectedCustomer}
-          fetchBookings={fetchBookings} 
-          selectedTable={selectedTable}
-          tables={tables}
-          setSelectedTable={setSelectedTable}
-          />}
+            exact path="/addbooking"
+            render={(props) => <AddBookingForm {...props}
+              customers={customers}
+              selectedCustomer={selectedCustomer}
+              fetchBookings={fetchBookings}
+              selectedTable={selectedTable}
+              tables={tables}
+              setSelectedTable={setSelectedTable}
+            />}
           >
           </Route>
           <Route
-          exact path ="/editbooking"
-          render={(props) => <EditBookingForm {...props} 
-          booking={bookingToEdit}
-          selectedTable={selectedTable}
-           />}
-          >  
+            exact path="/editbooking"
+            render={(props) => <EditBookingForm {...props}
+              booking={bookingToEdit}
+              selectedTable={selectedTable}
+            />}
+          >
           </Route>
 
           <Route exact path="/searchcustomers"
-          render={(props) => <SearchCustomers {...props}
-          customers={customers}
-          chooseSelectedCustomer={setSelectedCustomer}
-          />}
-          > 
+            render={(props) => <SearchCustomers {...props}
+              customers={customers}
+              chooseSelectedCustomer={setSelectedCustomer}
+            />}
+          >
           </Route>
 
           <Route exact path="/choosetable"
-          render={(props) => <ChooseTable {...props}
-          tables={tables}
-          setSelectedTable={setSelectedTable}
-          />}
-          > 
-          </Route>
-         
-          <Route
-          exact path ="/addcustomer"
-          render={(props) => 
-          <AddCustomerForm 
-          {...props}
-          fetchCustomers={fetchCustomers}
-          
-          
+            render={(props) => <ChooseTable {...props}
+              tables={tables}
+              setSelectedTable={setSelectedTable}
             />}
-          >  
+          >
           </Route>
-          </Switch>
+
+          <Route
+            exact path="/addcustomer"
+            render={(props) =>
+              <AddCustomerForm
+                {...props}
+                fetchCustomers={fetchCustomers}
+
+
+              />}
+          >
+          </Route>
+        </Switch>
       </View>
     </NativeRouter>
 
-    
+
 
   );
 };
