@@ -14,7 +14,8 @@ import ChooseTable from './Components/ChooseTable';
 import CustomerService from './Services/CustomerService';
 import BookingsService from './Services/BookingService';
 import TableService from './Services/TableService';
-import CalendarPicker from 'react-native-calendar-picker/CalendarPicker';
+import Calendar from './Components/Calendar';
+import { Overlay } from 'react-native-elements';
 
 
 const App = () => {
@@ -60,7 +61,7 @@ const App = () => {
       <View style={styles.view}>
         <Header title="Bobby Jacob's Bar & Grill" />
 
-        <CalendarPicker />
+        
         <Switch>
           <Route
             exact path="/"
@@ -121,6 +122,9 @@ const App = () => {
           </Route>
         </Switch>
       </View>
+<Overlay width={360} height={400} isVisible={false}>
+      <Calendar />
+</Overlay>
     </NativeRouter>
 
 

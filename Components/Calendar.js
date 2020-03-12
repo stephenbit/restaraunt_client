@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
 import {
     StyleSheet,
     Text,
     View
 } from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
+import moment from 'moment';
 
-export default class App extends Component {
+export default class Calendar extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,7 +20,6 @@ export default class App extends Component {
         this.setState({
             selectedStartDate: date,
         });
-        console.log(this.state.selectedStartDate)
     }
     render() {
         const { selectedStartDate } = this.state;
