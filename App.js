@@ -72,6 +72,8 @@ const App = () => {
           selectedCustomer={selectedCustomer}
           fetchBookings={fetchBookings} 
           selectedTable={selectedTable}
+          tables={tables}
+          setSelectedTable={setSelectedTable}
           />}
           >
           </Route>
@@ -106,6 +108,7 @@ const App = () => {
           <AddCustomerForm 
           {...props}
           fetchCustomers={fetchCustomers}
+          
           
             />}
           >  

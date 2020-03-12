@@ -1,17 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, View, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 
 import TableListItem from './TableListItem';
 
-const ChooseTable = ({tables, setSelectedTable, history}) => {
+
+const ChooseTable = ({tables, setSelectedTable, history, setPress}) => {
 
     const selectTable = (table) => {
         setSelectedTable(table);
         console.log(table);
-        history.goBack()
-        
+        setPress(false)
     }
-
 
     return(
         <View>

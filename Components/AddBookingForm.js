@@ -2,16 +2,30 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView} from 'react-native';
 import { NativeRouter, Switch, Route} from 'react-router-native'
 import BookingService from '../Services/BookingService';
+import { Overlay } from 'react-native-elements';
+import ChooseTable from './ChooseTable';
 
 
 
-const AddBooking =({customers, history , selectedCustomer, fetchBookings, selectedTable }) => {
+const AddBooking =({customers, history , selectedCustomer, fetchBookings, selectedTable, tables, setSelectedTable }) => {
 
     [startTime, setStartTime] = useState();
     [date, setDate] = useState();
-    [numberOfGuests, setNumberOfGuests] = useState();
+    [numberOfGuests, setNumberOfGuests] = useState(0);
     [customerId, setCustomerId] = useState();
     [eatingPlatformId, setEatingPlatformId] = useState();
+    [press, setPress] = useState(false);
+    [validTables, setValidTables] = useState([]);
+
+
+    const filterTables = () => {
+        let arrayOfTables = tables
+        let filteredTables = arrayOfTables.filter(table =>{
+            return table.numberOfSeats >= numberOfGuests
+        })
+        setValidTables(filteredTables)
+    }
+
 
 
         const submitBooking = () => {
@@ -45,7 +59,8 @@ const AddBooking =({customers, history , selectedCustomer, fetchBookings, select
         }
 
         const gotoChooseTable = () => {
-            history.push("/choosetable")
+            filterTables();
+            setPress(true);
         }
 
         
@@ -110,6 +125,24 @@ return (
                         Back
                     </Text>
                 </TouchableOpacity>
+
+                {press && <Overlay
+                isVisible={press}
+                height={510}
+                borderRadius={10}>
+
+                    <ChooseTable
+                    tables={validTables}
+                    setSelectedTable={setSelectedTable}
+                    setPress={setPress}
+                    numberOfGuests={numberOfGuests}
+                    ></ChooseTable>
+                </Overlay>
+            }
+
+
+
+
     </View>
 
 )
