@@ -158,12 +158,27 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
               setViewCalendar(true)
           }
 
+          const closeCalendar = () => {
+            //   pickedDateToString()
+              setViewCalendar(false)
+          }
+
+        //   const pickedDateToString = () => {
+        //     console.log(pickedDate.toString());
+            
+        //     const year = pickedDate.toString().slice(11,15);
+        //     const month = pickedDate.toString().slice(5,7);
+        //     const day = pickedDate.toString().slice(8,10);
+        //     const dateString = day + '/' + month + '/' + year
+        //     setDisplayedDate(dateString)
+        //   }
+
 
     return (
         <View>
 
 {viewCalendar && <Overlay isVisible={viewCalendar} style={styles.overlay} height={500} width={360} borderRadius={10}>
-                <Calendar setViewCalendar={setViewCalendar} setPickedDate={setPickedDate} />
+                <Calendar closeCalendar={closeCalendar} setPickedDate={setPickedDate} setDisplayedDate={setDisplayedDate} />
             </Overlay>}
 
             <TouchableOpacity onPress={goBackOneDay} >
