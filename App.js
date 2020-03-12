@@ -26,26 +26,17 @@ const App = () => {
   const [selectedCustomer, setSelectedCustomer] = useState({ name: '' });
   const [tables, setTables] = useState([]);
   const [selectedTable, setSelectedTable] = useState({ id: '' });
-  const [todaysDate, setTodaysDate] = useState('')
+
 
   useEffect(() => {
     fetchBookings();
     fetchCustomers();
     fetchTables();
-    getTodaysDate();
   },
     []
   )
 
-  const getTodaysDate = () => {
-    let today = new Date();
-    let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    let yyyy = today.getFullYear();
-    today = dd + '/' + mm + '/' + yyyy;
-    setTodaysDate(today)
-    console.log(todaysDate)
-  }
+
 
   const fetchBookings = () => {
     BookingsService.getAllBookings()
@@ -80,7 +71,6 @@ const App = () => {
               bookings={bookings}
               fetchBookings={fetchBookings}
               setBookings={setBookings}
-              todaysDate={todaysDate}
               />}
           >
           </Route>
@@ -93,6 +83,7 @@ const App = () => {
               selectedTable={selectedTable}
               tables={tables}
               setSelectedTable={setSelectedTable}
+          
             />}
           >
           </Route>

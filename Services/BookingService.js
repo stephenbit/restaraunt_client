@@ -6,6 +6,10 @@ export default {
         .then(res => res.json())
         },
 
+    getBookingsByDate(){
+        
+    }
+    
     createBooking(bookingDetails){
         return fetch(baseUrl, {
             method:"POST",

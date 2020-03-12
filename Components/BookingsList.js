@@ -8,12 +8,20 @@ import BookingsListItem from './BookingsListItem'
 import BookingService from '../Services/BookingService'
 
 
-const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchBookings, todaysDate}) => {
+const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchBookings }) => {
 
     const [tableHead, setTableHead] = useState(['Time', 'Name', 'Table'])
     const [tableData, setTableData] = useState([])
     const [press, setPress] = useState(false)
     const [selectedBooking, setSelectedBooking] = useState(null)
+    const [todaysDate, setTodaysDate] = useState('');
+    const [displayedDate, setDisplayedDate] = useState('');
+    const [displayedDateAsDate, setdisplayedDateAsDate] = useState({});
+
+    useEffect(() => {
+        getDateAsDate();
+    },[])
+    
 
 
     const handlePress = (booking) => {
@@ -25,9 +33,10 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
         setBookingToEdit(selectedBooking)
         history.push("/editbooking")
     }
-    
+
     const handleClose = () => {
         setPress(false)
+        console.log(displayedDate)
     }
 
     const gotoAddBooking = () => {
@@ -38,7 +47,7 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
         history.push('/searchcustomers')
     }
 
-    const gotoAddCustomer = () => {
+const gotoAddCustomer = () => {
         history.push("/addcustomer")
     }
 
@@ -53,8 +62,8 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
         // loops through bookings to find selectedBooking and then
         // set the has arrived to true before setting bookings in app
         // via function pass down as a prop
-        for(booking of bookings){
-            if(booking == selectedBooking){
+        for (booking of bookings) {
+            if (booking == selectedBooking) {
                 booking.hasArrived = 'true'
             }
         }
@@ -72,30 +81,73 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
     }
 
     const tableDataNodes = bookings.map((booking, index) => {
-        if (booking.hasArrived){
+        if (booking.hasArrived) {
             return (<TouchableOpacity onPress={() => handlePress(booking)} >
-                <Row   style={styles.rowarrived} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+                <Row style={styles.rowarrived} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
             </TouchableOpacity>
             )
         } else {
             return (<TouchableOpacity onPress={() => handlePress(booking)} >
-                <Row  style={styles.row} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
+                <Row style={styles.row} textStyle={styles.rowtext} data={[booking.startTime, booking.customer.name, booking.eatingPlatformId]} />
             </TouchableOpacity>
             )
         }
     })
 
+
+
+
+function getDateAsDate() {
+    let today = new Date();
+    setdisplayedDateAsDate(today);
+    turnDateToString(today);
+  }
+
+ const turnDateToString = (date) => {
+    let dd = String(date.getDate()).padStart(2, '0');
+    let mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = date.getFullYear();
+    stringdate = dd + '/' + mm + '/' + yyyy;
+    setDisplayedDate(stringdate)
+ }
+
+
+  const goForwardOneDay = () => {
+    displayedDateAsDate.setDate(displayedDateAsDate.getDate() +1)
+    setdisplayedDateAsDate(displayedDateAsDate)
+    turnDateToString(displayedDateAsDate)
+  }
+
+  const goBackOneDay = () => {
+    displayedDateAsDate.setDate(displayedDateAsDate.getDate() -1)
+    setdisplayedDateAsDate(displayedDateAsDate)
+    turnDateToString(displayedDateAsDate)
+  }
+
+
+
+
     return (
         <View>
+            <TouchableOpacity onPress={goBackOneDay} >
+                <Text style={styles.dateNav} >
+                    Back
+                </Text>
+            </TouchableOpacity>
 
-        <Text style={styles.dateNav}>
-        ⬅️{todaysDate}➡️
-        </Text>
-            {press && <Overlay 
-            isVisible={press} 
-            style={styles.overlay} 
-            height={510} 
-            borderRadius={10}
+            <Text style={styles.dateNav}>
+                {displayedDate}
+            </Text>
+
+            <TouchableOpacity onPress={goForwardOneDay} >
+            <Text style={styles.dateNav}>Forward</Text>
+            </TouchableOpacity>
+
+            {press && <Overlay
+                isVisible={press}
+                style={styles.overlay}
+                height={510}
+                borderRadius={10}
             >
                 <View>
                     <Text style={styles.title}>Booking Details</Text>
@@ -137,52 +189,52 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
                             Close
                         </Text>
                     </TouchableOpacity>
-                    </View>
+                </View>
             </Overlay>}
 
-            <Table 
-            style={styles.table}>
-    
-                <Row textStyle={{fontSize: 20, fontWeight: 'bold'}} data={tableHead} />
-               <ScrollView>
-                {tableDataNodes}
+            <Table
+                style={styles.table}>
+
+                <Row textStyle={{ fontSize: 20, fontWeight: 'bold' }} data={tableHead} />
+                <ScrollView>
+                    {tableDataNodes}
                 </ScrollView>
             </Table>
-            
+
 
             <TouchableOpacity
-            style={styles.button}
-            onPress={gotoAddBooking}
+                style={styles.button}
+                onPress={gotoAddBooking}
             >
                 <Text
-                style={styles.buttontext}
+                    style={styles.buttontext}
                 >
                     Add Booking
                 </Text>
             </TouchableOpacity>
 
             <TouchableOpacity
-            style={styles.button}
-            onPress={gotoSearchCustomers}
+                style={styles.button}
+                onPress={gotoSearchCustomers}
             >
                 <Text
-                style={styles.buttontext}
+                    style={styles.buttontext}
                 >
                     Search Customers
                 </Text>
             </TouchableOpacity>
 
             <TouchableOpacity
-            style={styles.button}
-            onPress={gotoAddCustomer}
+                style={styles.button}
+                onPress={gotoAddCustomer}
             >
                 <Text
-                style={styles.buttontext}
+                    style={styles.buttontext}
                 >
                     Add Customer
                 </Text>
             </TouchableOpacity>
-    
+
         </View>
     )
 }
@@ -195,7 +247,7 @@ const styles = StyleSheet.create({
         paddingBottom: 15
     },
     dateNav: {
-        fontSize:20,
+        fontSize: 20,
         textAlign: 'center',
     },
     overlay: {
@@ -203,7 +255,7 @@ const styles = StyleSheet.create({
         // display: "flex",
         flex: 1,
         justifyContent: "center"
-      
+
     },
     title: {
         fontSize: 25,
@@ -227,35 +279,35 @@ const styles = StyleSheet.create({
         fontSize: 15
 
     },
-    button:{
+    button: {
         marginHorizontal: 15,
         fontSize: 24,
         backgroundColor: 'cornflowerblue',
         marginTop: 20,
         height: 40,
-        borderRadius:5
+        borderRadius: 5
     },
-    buttontext:{
+    buttontext: {
         paddingTop: 8,
         fontSize: 18,
         fontWeight: 'bold',
         color: 'white',
-        textAlign:'center'
+        textAlign: 'center'
     },
-    row:{
+    row: {
         height: 40,
     },
-    rowarrived:{
+    rowarrived: {
         height: 40,
         backgroundColor: 'rgba(152,251,152,0.5)'
     },
-    rowtext:{
+    rowtext: {
         fontSize: 20
     },
-    table:{
-        height: 400, 
-        overflow: 'scroll', 
-        marginTop: 20, 
+    table: {
+        height: 400,
+        overflow: 'scroll',
+        marginTop: 20,
         marginHorizontal: 15
     }
 
