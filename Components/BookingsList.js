@@ -226,7 +226,7 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
             <Table 
             style={styles.table}>
     
-                <Row textStyle={{fontSize: 20, fontWeight: 'bold', textAlign: 'center'}} data={tableHead} flexArr={[1, 3, 1.5]}/>
+                <Row textStyle={{fontSize: 20, fontWeight: 'bold', textAlign: 'center'}} data={tableHead} flexArr={[0.8, 3, 1.5]}/>
                <ScrollView>
                 {/* {tableDataNodes} */}
                 {getTableRows()}
