@@ -7,7 +7,6 @@ import Calendar from './Calendar';
 
 import BookingService from '../Services/BookingService'
 
-
 const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchBookings}) => {
 
     const [tableHead, setTableHead] = useState(['Time', 'Name', 'Party Size'])
@@ -18,7 +17,6 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
     const [displayedDate, setDisplayedDate] = useState('');
     const [displayedDateAsDate, setdisplayedDateAsDate] = useState({});
     const [viewCalendar, setViewCalendar] = useState(false);
-    const [pickedDate, setPickedDate] = useState('');
 
     useEffect(() => {
         getDateAsDate();
@@ -159,26 +157,14 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
           }
 
           const closeCalendar = () => {
-            //   pickedDateToString()
               setViewCalendar(false)
           }
-
-        //   const pickedDateToString = () => {
-        //     console.log(pickedDate.toString());
-            
-        //     const year = pickedDate.toString().slice(11,15);
-        //     const month = pickedDate.toString().slice(5,7);
-        //     const day = pickedDate.toString().slice(8,10);
-        //     const dateString = day + '/' + month + '/' + year
-        //     setDisplayedDate(dateString)
-        //   }
-
 
     return (
         <View>
 
 {viewCalendar && <Overlay isVisible={viewCalendar} style={styles.overlay} height={500} width={360} borderRadius={10}>
-                <Calendar closeCalendar={closeCalendar} setPickedDate={setPickedDate} setDisplayedDate={setDisplayedDate} />
+                <Calendar closeCalendar={closeCalendar}  setDisplayedDate={setDisplayedDate} setdisplayedDateAsDate={setdisplayedDateAsDate} />
             </Overlay>}
 
             <TouchableOpacity onPress={goBackOneDay} >

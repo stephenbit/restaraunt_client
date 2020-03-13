@@ -3,11 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 
 
- const Calendar = ({closeCalendar, setPickedDate, setDisplayedDate}) =>  {
+ const Calendar = ({closeCalendar, setdisplayedDateAsDate, setDisplayedDate}) =>  {
  
 
     const pickDate = (date) => {
-        setPickedDate(date);
         pickedDateToString(date);
         console.log(date);
         closeCalendar();
