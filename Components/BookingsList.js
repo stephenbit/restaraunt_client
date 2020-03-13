@@ -20,6 +20,7 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
 
     useEffect(() => {
         getDateAsDate();
+        getTableRows();
     },[])
 
     const handlePress = (booking) => {
@@ -88,7 +89,13 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
 
     const getTableRows = () => {
         const filteredBookings = bookings.filter(booking => booking.hasLeft != true)
-        const tableDataNodes = filteredBookings.map((booking) => {
+        console.log('filtered by has left', filteredBookings);
+        
+        const filteredByDateBookings = filteredBookings.filter(booking => booking.date == displayedDate)
+        console.log('filtered by date', filteredByDateBookings);
+        console.log('displayed date string', displayedDate);
+        
+        const tableDataNodes = filteredByDateBookings.map((booking) => {
                 if (booking.hasArrived){
                     return (<TouchableOpacity onPress={() => handlePress(booking)} >
                         <Row style={styles.rowarrived} textStyle={styles.rowtext} flexArr={[1, 3, 1.5]} data={[booking.startTime, booking.customer.name, booking.numberOfGuests]} />
@@ -160,11 +167,16 @@ const BookingsList = ({ bookings, setBookings, history, setBookingToEdit, fetchB
               setViewCalendar(false)
           }
 
+          const setDate = (date) => {
+              setDisplayedDate(date);
+              setBookings(bookings);
+          }
+
     return (
         <View>
 
 {viewCalendar && <Overlay isVisible={viewCalendar} style={styles.overlay} height={500} width={360} borderRadius={10}>
-                <Calendar closeCalendar={closeCalendar}  setDisplayedDate={setDisplayedDate} setdisplayedDateAsDate={setdisplayedDateAsDate} />
+                <Calendar closeCalendar={closeCalendar}  setDate={setDate} setdisplayedDateAsDate={setdisplayedDateAsDate} />
             </Overlay>}
 
             <TouchableOpacity onPress={goBackOneDay} >

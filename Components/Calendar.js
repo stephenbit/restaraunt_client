@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 
 
- const Calendar = ({closeCalendar, setdisplayedDateAsDate, setDisplayedDate}) =>  {
+ const Calendar = ({closeCalendar, setdisplayedDateAsDate, setDate}) =>  {
  
 
     const pickDate = (date) => {
@@ -19,7 +19,7 @@ import CalendarPicker from 'react-native-calendar-picker';
         month = (months.indexOf(month) + 1).toString().padStart(2, '0')
         const day = date.toString().slice(8,10);
         const dateString = day + '/' + month + '/' + year
-        setDisplayedDate(dateString)
+        setDate(dateString)
       }
 
         return (
