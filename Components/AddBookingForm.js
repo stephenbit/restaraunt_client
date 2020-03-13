@@ -5,7 +5,7 @@ import BookingService from '../Services/BookingService';
 import { Overlay } from 'react-native-elements';
 import ChooseTable from './ChooseTable';
 
-
+import Calendar from './Calendar'
 
 const AddBooking =({customers, history , selectedCustomer, setSelectedCustomer, fetchBookings, selectedTable, tables, setSelectedTable }) => {
 
@@ -16,6 +16,7 @@ const AddBooking =({customers, history , selectedCustomer, setSelectedCustomer, 
     [eatingPlatformId, setEatingPlatformId] = useState();
     [press, setPress] = useState(false);
     [validTables, setValidTables] = useState([]);
+    [viewCalendar, setViewCalendar] = useState(false);
 
     const setTable = () => {}
 
@@ -71,12 +72,20 @@ const AddBooking =({customers, history , selectedCustomer, setSelectedCustomer, 
             setPress(true);
         }
 
-        
+        const closeCalendar = () => {
+            setViewCalendar(false);
+        }
     
 
 
 return (
     <View>
+
+{viewCalendar && <Overlay isVisible={viewCalendar} style={styles.overlay} height={500} width={360} borderRadius={10}>
+            <Calendar closeCalendar={closeCalendar}  setDate={setDate} />
+        </Overlay>}
+
+
 
         <Text style={styles.label} >Customer:</Text>
         <Text style={styles.label}>{selectedCustomer.name}</Text>
@@ -92,13 +101,22 @@ return (
                     onChangeText={text => setStartTime(text)}
                     // value='12:00'
                 />
-                <Text style={styles.label} >Date:</Text>
-                <TextInput
+                <Text style={styles.label} >Date: {date}</Text>
+                {/* <TextInput
                     style={styles.textinput}
                     onChangeText={text => setDate(text)}
                     // value={todaysDate}
                    
-                />
+                /> */}
+
+                <TouchableOpacity style={styles.button} onPress={() => setViewCalendar(true)} >
+                    <Text style={styles.buttontext} >
+                        Pick Date
+                    </Text>
+                </TouchableOpacity>
+
+
+
                 <Text style={styles.label} >Table Size:</Text>
                 <TextInput
                     style={styles.textinput}
