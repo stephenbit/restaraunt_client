@@ -1,6 +1,10 @@
 # Restaurant Management App
 
-React Native Mobile App and Java/Spring backend
+Codeclan Edinburgh Final Group Project
+Java-Spring back-end and Javascript-React front-end
+
+Contributors
+@paddyjoneill
 
 Backend https://github.com/chrisssf/restaurant_backend
 Hosted at http://restaurantspringbackend.herokuapp.com/
