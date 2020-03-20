@@ -4,9 +4,13 @@ Codeclan Edinburgh Final Group Project
 Java-Spring back-end and Javascript-React front-end
 
 Contributors:
+
 Chris Fraser www.github.com/chrisssf
+
 Patrick O'Neill www.github.com/paddyjoneill
+
 Stephen Ramsay www.github.com/stephenbit
+
 Andrew Wyper  www.github.com/wypinho
 
 
