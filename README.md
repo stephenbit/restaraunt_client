@@ -1,9 +1,11 @@
 # Restaurant Management App
 
-Codeclan Edinburgh Final Group Project
+## Codeclan Edinburgh Final Group Project
+
 Java-Spring back-end and Javascript-React front-end
 
-Contributors:
+
+## Contributors:
 
 Chris Fraser www.github.com/chrisssf
 
