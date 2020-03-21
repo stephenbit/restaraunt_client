@@ -38,5 +38,5 @@ Andrew Wyper  www.github.com/wypinho
 
 ## Video
 
-![](/screenshots/app.mov )
+There is a short film of the app at https://github.com/stephenbit/restaraunt_client/screenshots/app.mov
 
