@@ -4,6 +4,16 @@
 
 Java-Spring back-end and Javascript-React front-end
 
+As a group we chose the brief to create some software for the front of house manager in a restaurant so that they could see booking, add bookings, mark people as arrived. We decided to use React Native as it was new to us all and we wanted to push ourselves in a new direction and thought it would be good for a front of house person to have the app on a phone so they can update things on the move. For the backend we used the Spring Framework including custom queries and projections to provide us the data we required in a small amount of database transactions.
+
+The project was a success and we were able to do all the things we originally set out to do.
+
+If we where to carry on working on the project we would work on user authentication so customers could book their own tables and also that tables weren't able to be double booked.
+
+
+Backend https://github.com/chrisssf/restaurant_backend
+Hosted at http://restaurantspringbackend.herokuapp.com/
+
 
 ## Contributors:
 
@@ -17,11 +27,7 @@ Andrew Wyper  www.github.com/wypinho
 
 
 
-Backend https://github.com/chrisssf/restaurant_backend
-Hosted at http://restaurantspringbackend.herokuapp.com/
-
-
-# Screenshots
+## Screenshots
 
 ![](/screenshots/screenshot1.png )
 ![](/screenshots/screenshot2.png )
