@@ -15,6 +15,9 @@ Backend https://github.com/chrisssf/restaurant_backend
 Hosted at http://restaurantspringbackend.herokuapp.com/
 
 
+To get it working on your local machine, clone the repository, 'npm install' in root directory, change into the ios directory and 'pod install', back to root directory and 'react-native run-ios'. You will need to have XCode installed.
+
+
 ## Contributors:
 
 Chris Fraser www.github.com/chrisssf
